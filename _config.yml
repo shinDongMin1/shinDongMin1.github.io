@@ -20,22 +20,22 @@
 lang:                  ko-KR, en-US
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 JaeYoung Heo
+title:                 DongMin Shin
 
 timezone:              Asia/Seoul
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  JaeYoung's Tech blog.
+  DongMin's Tech blog.
   Studying for DBA.
 
 # A shorter description for the sidebar.
 tagline:               >
-  JaeYoung's Tech blog.
+  동민's Tech blog.
 
 # A list of keywords for your blog
-keywords:              ["DBA", "C++", "Algorythm", "Cloud"]
+keywords:              ["DBA", "C++", "Algorithm", "Spring"]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -45,14 +45,14 @@ logo:                  /assets/img/me.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                JaeYoung Heo
-  email:               heoj10272@skuniv.ac.kr
+  name:                DongMin Shin
+  email:               sddu9@naver.com
   picture:             /assets/img/me.png
   social:
     #linkedin:          daein-lee-3b6ba9139
-    github:            heoj10272
+    github:            shinDongMin1
     #stackoverflow:     4294737
-    email:             heoj10272e@skuniv.ac.kr
+    email:             sddu9@naver.com
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -67,7 +67,7 @@ legal:
 #     url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2022. All rights reserved.
+copyright:             © 2022. All rights reserved. 신동민의 블로그
 
 # Format of the permalinks
 # permalink:             /blog/:categories/:year-:month-:day-:title/
@@ -91,7 +91,7 @@ excerpt_separator:     <!--more-->
 
 # Sidebar image and theme color of the site.
 accent_image:
-  background:          center / cover url(/assets/img/breakfast.jpg)
+  background:          center / cover url(/assets/img/main_left.jpg)
   overlay:             false
 accent_color:          rgb(0,174,239)
 
@@ -212,17 +212,17 @@ comments:
 # You must install giscus github app before use.(https://github.com/apps/giscus)
 # Make sure all variables are set properly. Check below link for detail.
 # https://giscus.vercel.app/
-giscus:
-  repo:                "LazyRen/LazyRen.github.io"
-  repo-id:             "MDEwOlJlcG9zaXRvcnkyNzU4Mjk1NTc="
-  category:            "Comments"
-  category-id:         "DIC_kwDOEHDTNc4B-MIg"
-  mapping:             "pathname"
-  reaction-enabled:    "1"
-  data-emit-metadata:  "0"
-  theme:               "dark_dimmed"
-  data-lang:           "en"
-  crossorigin:         "anonymous"
+# giscus:
+#  repo:                "LazyRen/LazyRen.github.io"
+#  repo-id:             "MDEwOlJlcG9zaXRvcnkyNzU4Mjk1NTc="
+#  category:            "Comments"
+#  category-id:         "DIC_kwDOEHDTNc4B-MIg"
+#  mapping:             "pathname"
+#  reaction-enabled:    "1"
+#  data-emit-metadata:  "0"
+#  theme:               "dark_dimmed"
+#  data-lang:           "en"
+#  crossorigin:         "anonymous"
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
