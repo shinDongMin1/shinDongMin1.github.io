@@ -12,7 +12,7 @@ order: 2
 <span style=
 "font-size:170%;
 font-weight:bold">
-허재영
+신동민
 </span>
 </center>
 
@@ -24,11 +24,11 @@ font-weight:bold">
 
 ## Personal Data
 ---
-> 1998.12.15 출생
+> 1999.01.12 출생
 
-> 연락처: heoj10272@skuniv.ac.kr
+> 연락처: sddgu9@naver.com
 
-> Github : <a href="https://github.com/heoj10272">https://github.com/heoj10272</a>
+> Github : <a href="https://github.com/shinDongMin1">https://github.com/shinDongMin1</a>
 
 
 ## Education
@@ -45,12 +45,10 @@ font-weight:bold">
     + SPRING
 
 * DATABASE
-    + ORACLE
     + MYSQL
 
 * CLOUD
     + AWS
-    + GCP
 
 ## Project
 ---
@@ -58,14 +56,3 @@ font-weight:bold">
 
 ## Work Experiences
 ---
-> **종이와 연필 - LG 유플러스**
-
-> **종이와 연필 - LX Pantos**
-
-## Skills and Certification
----
--Language : C++
-
-
-
-
