@@ -28,7 +28,7 @@ timezone:              Asia/Seoul
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
   DongMin's Tech blog.
-  Studying for DBA.
+  Studying for Back-end.
 
 # A shorter description for the sidebar.
 tagline:               >
