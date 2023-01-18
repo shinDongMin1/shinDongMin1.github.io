@@ -14,6 +14,11 @@ defer와 panic()에 대해 알아보자.
 
 <!--more-->
 
+* this unordered seed list will be replaced by the toc
+{:toc}
+
+<hr/>
+
 ## 지연 처리 defer
 ---
 **Go언어**의 다양한 용법중에서도 '문법'에 해당되는 내용을 학습했습니다. 용법이 문법을 포함하는 뜻이지만, **용법과 문법**은 `사용에 있어서 차이`가 있습니다. <br>
