@@ -9,6 +9,9 @@ image:
   path: /assets/img/study_AWS/aws_logo.png
 ---
 
+# AWS EC2 인스턴스 접속
+아마존 웹 서비스(이하 AWS)에서 생성한 EC2 서비스 인스턴스에 접속해보자.
+
 Linux는 SSH(시큐어 쉘)를 가지고 있지만 Windows는 SSH(시큐어 쉘)를 가지고 있지 않기 때문에, SSH(시큐어 쉘)의 역할을 해주는 프로그램이 필요합니다. <br>
 
 즉, Windows에서 Linux로 원격 접속을 하기 위해서는 별도의 프로그램이 필요하며, PuTTY를 사용해서 `EC2` 인스턴스에 접속할 것 입니다. <br>
@@ -93,5 +96,3 @@ PuTTYgen 기본 초기화면입니다. <br>
 이렇게 뜨면 성공입니다.
 
 <hr/>
-
-다음은 RDS 인스턴스를 생성하는 방법을 소개하겠습니다.
