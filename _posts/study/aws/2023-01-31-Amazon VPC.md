@@ -20,7 +20,6 @@ AWS 서비스 중 하나인 **Amazon VPC**를 이해해보자.
 <hr/>
 
 # Amazon VPC 개요
----
 
 **Amazon Virtual Private Cloud(Amazon VPC)**는 AWS 클라우드 내에서 사용자의 논리적으로 격리된 공간에 virtual private cloud(vpc)라고 불리는 `가상 네트워크를 정의`할 수 있게 해줍니다. <br>
 Amazon EC2 인스턴스와 같은 AWS 리소스를 사용자 VPC의 서브넷에서 만들 수 있습니다. <br>
@@ -30,7 +29,6 @@ Amazon EC2 인스턴스와 같은 AWS 리소스를 사용자 VPC의 서브넷에
 
 
 # Amazon VPC 개념
----
 
 **Amazon VPC**는 Amazon EC2의 네트워킹 계층입니다.
 다음은 VPC의 핵심 개념입니다. <br>
@@ -93,7 +91,6 @@ Amazon EC2 인스턴스와 같은 AWS 리소스를 사용자 VPC의 서브넷에
 
 
 # Amazon VPC 액세스
----
 
 다음 인터페이스 중 하나를 사용하여 VPC를 생성하고, 액세스하고, 관리할 수 있습니다. <br>
 
@@ -112,7 +109,6 @@ Amazon EC2 인스턴스와 같은 AWS 리소스를 사용자 VPC의 서브넷에
 
 
 # VPC Peering
----
 
 VPC Peering Connection은 `서로 다른 두 VPC 간에 트래픽을 라우팅할 수 있도록 하는 네트워킹 연결`입니다. <br>
 
@@ -133,7 +129,6 @@ VPC 피어링 연결을 사용하여 `다른 VPC가 사용자`의 VPC 중 하나
 
 
 # Site-to-Site VPN vs AWS Client VPN
----
 
 > AWS VPN은 `AWS Site-to-Site VPN` 및 `AWS Client VPN`이라는 두 가지 서비스로 구성됩니다. <br>
 > **AWS Site-to-Site VPN**을 사용하면 `온프레미스 네트워크 또는 지사 사이트를` Amazon Virtual Private Cloud(Amazon VPC)에 안전하게 연결할 수 있습니다. <br>
@@ -152,7 +147,6 @@ VPC 피어링 연결을 사용하여 `다른 VPC가 사용자`의 VPC 중 하나
 
 
 # Ref
----
   - [AWS UserGuide amazon vpc](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/what-is-amazon-vpc.html)
   - [AWS UserGuide using vpc](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-vpc.html)
   - [Developers](https://dev.classmethod.jp/articles/vpc-3/)
