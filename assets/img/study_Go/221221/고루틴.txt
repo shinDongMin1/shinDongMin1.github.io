@@ -1,0 +1,205 @@
+---
+layout: post
+title: 고루틴
+subtitle: GO
+date: '2022-12-21 00:00:01 +0900'
+categories: study
+tags: go
+image:
+  path: /assets/img/study_Go/main.PNG
+---
+
+# 고루틴
+고루틴에 대해 알아보자.
+
+<!--more-->
+
+## 비동기 프로세스의 기본
+---
+**Goroutine(이하 고루틴)**은 `여러 함수를 동시에(Concurrently) 실행`할 수 있는 `논리적 가상 스레드`입니다. 우리는 컴퓨터로 한 가지 일만 하지 않습니다. 사용자는 여러가지 프로그램을 실행하고 프로그램은 메모리(CPU)에 할당되어 처리됩니다. 이것을 바로 '멀티 태스킹'이라고 합니다.
+그런데 프로그램 안에서도 여러가지 일이 실행되고 처리됩니다. 이러한 프로세스(메모리에 할당된 프로그램) 안의 실행 흐름을 스레드라고 합니다. <br>
+쉽게 말해서, **멀티 프로세스**는 `동시에 여러 프로그램을 실행`하는 것이고 **멀티 스레드**는 프로그램 안에서 `다양한 기능을 동시에 실행`하는 것입니다. <br>
+
+**Java와 같은 언어**에서는 `함수를 호출할 때 멀티 스레드를 사용`합니다. 하지만 **Go언어**에서는 `스레드보다 훨씬 가벼운 비동기 동시 처리를 구현`해 각각의 일에 대해 스레드와 1대 1로 대응하지 않고, `훨씬 적은 스레드를 사용`합니다. 효율적이고 가벼운 기능으로서 비동기 프로세스를 구현할 때 `Go언어의 장점이 극대화`됩니다. 또한 **'고채널(Gochannel)'**을 이용해 `고루틴간의 통신도 굉장히 용이`하게 할 수 있도록 했습니다. <br>
+```go
+package main
+
+import "fmt"
+
+func testGo() {
+	fmt.Println("Hello goorm!")
+}
+
+func main() {
+	go testGo() //고루틴으로 비동기 실행
+	fmt.Scanln()
+}
+```
+**tesetGo() 함수를 고루틴으로 실행함으로써** `main() 함수와 동시에 실행`되기 때문에 testGo() 함수의 
+fmt.Println("Hello goorm!")이 호출되기 전에 main() 함수가 종료되고 프로그램이 종료됩니다. <br>
+따라서 main() 함수가 먼저 종료되지 않게 대기하기 위해 fmt.Scaln()을 입력해줍니다. <br>
+
+고루틴으로 실행하는 함수가 비동기적으로 실행되는지 느끼기 위해 반복문을 사용해 고루틴으로 함수를 호출해보겠습니다. 비동기적으로 실행하기 때문에 숫자가 순서대로 출력되지 않을 것입니다. <br>
+```go
+난수를 생성하기 위해 "math/rand" 패키지, 시간 출력을 위해 "time" 패키지를 import합니다.
+rand.Intn()는 정수형 난수를 생성하는 함수입니다.
+"time"에서 쓰이는 시간은 모두 Duration형입니다. 이는 "time" 패키지 안에 `선언된 구조체`로서 int64형입니다. 
+time.Sleep()은 프로그램에 대기 시간을 주는 함수입니다. 괄호 안은 Duration형을 써야합니다.
+```
+```go
+type Duration int64
+//int64를 Duration으로 type문으로 사용자 재정의함
+const (
+	Nanosecond  Duration = 1
+	Microsecond          = 1000 * Nanosecond
+	Millisecond          = 1000 * Microsecond
+	Second               = 1000 * Millisecond
+	Minute               = 60 * Second
+	Hour                 = 60 * Minute
+)
+```
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func hello(n int) {
+	r := rand.Intn(3) // 0부터 3까지 난수 생성
+	time.Sleep(time.Duration(r) * time.Second)
+	// 난수를 Dration형으로 형변환 후 second로 계산
+	fmt.Println(n)
+}
+
+func main() {
+	for i := 0; i < 100; i++ {
+		go hello(i)        // 고루틴 100개 생성 비동기 실행
+	}
+
+	fmt.Scanln()
+}
+```
+
+## 고루틴의 활용
+---
+원래는 고루틴이 모두 끝날 때까지 대기하는 기능이 따로 있습니다. 바로 "sync" 패키지의 WaitGroup입니다.
+**WaitGroup**은 `"sync" 패키지에 선언되어있는 구조체`로서 `고루틴이 완료될 때까지 대기`합니다. 이를 변수로 선언해 메소드를 활용할 수 있습니다. <br>
+```go
+Add() : 기다릴 고루틴의 수 설정
+Done() : 고루틴이 실행된 함수 내에서 호출함으로써 함수 호출이 완료됐음을 알림
+Wait() : 고루틴이 모두 끝날 때까지 차단
+```
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+    "sync"
+)
+
+func hello(n int, w *sync.WaitGroup) {
+    defer w.Done() //끝났음을 전달
+    
+    r := rand.Intn(3)
+    
+    time.Sleep(time.Duration(r) * time.Second)
+    
+    fmt.Println(n)  
+}
+
+func main() {
+    wait := new(sync.WaitGroup) //waitgroup 생성, new 키워드로 선언한 변수는 포인터형
+    // var wait sync.WaitGroup 형식으로도 선언하면 주소를 참조하기 위해 & 연산자를 사용
+
+    wait.Add(100) // 100개의 고루틴을 기다림
+    
+    for i := 0; i < 100; i++ {
+            go hello(i, wait) //wait을 매개변수로 전달
+    }   
+    
+    wait.Wait() // 고루틴이 모두 끝날때까지 대기
+}
+```
+**중요한 것**은 `wait은 포인터 변수`이기 때문에 매개변수형을 *sync.WaitGroup 형식으로 선언한 것입니다. **만약 * 연산자를 넣지 않으면** hello() 함수 내에 w와 main() 함수의 wait이 다르게 인식되어(call by value) `고루틴이 모두 종료되지 않고 교착상태`에 빠지게 됩니다. <br>
+따라서 Call by reference 형식으로 함수 내에서 w.Done() 메소드를 호출하고 고루틴이 모두 종료됐으면 main() 함수에서 호출되어 기다리고있던 wait.Wait() 메소드도 대기를 멈추고 종료합니다. <br>
+
+## 클로저에서의 고루틴
+---
+사실 **WaitGroup**은 `클로저에서 많이 활용`됩니다. wait 변수를 포인터 변수로 선언해 사용하면서 좀 복잡했지만 **익명함수 클로저**를 사용하면 `클로저를 감싸고있는 함수 내에 선언된 wait을 직접 접근할 수 있기때문에 사용하기 편리`합니다. <br>
+```go
+package main
+ 
+import (
+    "fmt"
+    "sync"
+)
+ 
+func main() {
+    var wait sync.WaitGroup
+    wait.Add(102)
+ 
+	str := "goorm!"
+	
+    go func() {
+        defer wait.Done()
+        fmt.Println("Hello")
+    }()
+	
+	go func() {
+        defer wait.Done()
+        fmt.Println(str)
+    }()
+ 
+	for i := 0; i<100; i++ {
+		go func(n int) {
+			defer wait.Done()
+			
+			fmt.Println(n)
+		}(i)
+	}
+ 
+    wait.Wait()
+}
+```
+일부러 string형 변수 str을 선언하고 클로저에서 직접 접근할 수 있음을 먼저 보여줬습니다. 마찬가지로 반복문 안에 defer wait.Done()로 같은 wait의 메소드를 호출할 수 있습니다. <br>
+
+## 다중 CPU 병렬 처리
+---
+**고루틴**을 `아무리 많이 만들어도 한 개의 CPU에서 시분할 처리`합니다. 그런데 요즘 디바이스들은 CPU가 복수개(듀얼 코어 이상)이기 때문에 **Go 언어**는 `고루틴 뿐만이 아니라 다중 CPU를 이용한 병렬 처리를 지원`합니다. **고루틴**에서의 `동시성(Concurrency)은 독립적으로 실행되는 기능들`이고, **다중 CPU의 병렬 처리(Parallelism)**는 `계산들을 동시 실행`하는 것입니다. **동시성**은 `한 번에 많은 것들을 처리`하고, **병렬 처리**는 `한 번에 많은 일을 하는 것에 관한 것`입니다. <br>
+**Go언어**에서 다중 CPU를 사용하는 것은 굉장히 간단합니다. `"runtime" 패키지에서 제공`하는 함수를 이용하면 됩니다. <br>
+```go
+runtime.NumCPU() : 현재 디바이스의 CPU 개수를 반환
+runtime.GOMAXPROCS() : 입력한 수만큼 (Logical)CPU 사용, 입력한 수가 1 미만일 때 현재 설정 값을 반환하고 설정 값은 바꾸지 않음
+```
+```go
+package main
+ 
+import (
+	"fmt"
+	"runtime"
+	"sync"
+)
+ 
+func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	//디바이스의 총 CPU 개수를 반환하고 그 값을 CPU 사용 값으로 설정	
+	fmt.Println(runtime.GOMAXPROCS(0))
+	// 현재 설정값 출력, 1미만이기 때문에 설정값 바꾸지 않음
+	var wait sync.WaitGroup
+	wait.Add(100)
+	
+	for i := 0; i<100; i++ {
+		go func(n int) {
+			defer wait.Done()
+			fmt.Println(n)
+		}(i)
+	}
+	
+	wait.Wait()
+}
+```

@@ -1,0 +1,236 @@
+---
+layout: post
+title: 채널-2
+subtitle: GO
+date: '2022-12-23 00:00:01 +0900'
+categories: study
+tags: go
+image:
+  path: /assets/img/study_Go/main.PNG
+---
+
+# 채널-2
+채널에 대해 알아보자.
+
+<!--more-->
+
+## 채널 닫기
+---
+루틴에서 채널을 생성하고 **데이터를 송신**하기 위해서는 `수신하는 곳이 명확`해야 합니다. **동기 채널**에서는 `수신 루틴(다른 루틴이어야 함)에서`, **비동기 채널**에서는 `버퍼에서 데이터를 수신`합니다. <br> 
+만약 수신하는 곳이 **명확하지 않은 채 채널로 데이터를 송신**한다면 `채널에 묶여 무한 대기 상황이 발생`합니다. 메인 루틴에서 무한 대기 상황이 발생하면 데드락이 발생합니다. <br>
+
+**데이터 수신**시에도 마찬가지로 `송신된 데이터`가 없을 경우에 채널에서 데이터를 수신하면 무한 대기 상태가 됩니다. 그런데 이때 채널에 데이터를 송신한 후 **채널을 닫으면** 해당 채널로는 `더이상 데이터를 송신할 수 없지만 채널이 닫힌 후에 계속 수신이 가능`하게 됩니다. 채널을 닫을 때는 `"close(채널이름)" 형식`을 사용합니다. <br>
+```go
+package main
+ 
+import "fmt"
+
+func main() {
+	c := make(chan string, 2) // 버퍼 2개 생성
+	
+	// 채널(버퍼)에 송신
+	c <- "Hello"
+	c <- "goorm"
+	
+	// 채널 수신
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c) // 무한 대기 상황 발생
+}
+```
+```go
+package main
+ 
+import "fmt"
+
+func main() {
+	c := make(chan string, 2) // 버퍼 2개 생성
+	
+	// 채널(버퍼)에 송신
+	c <- "Hello"
+	c <- "goorm"
+
+	close(c) // 채널 닫음
+	
+	// 채널 수신
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c) // 무한 대기 상황 발생 x
+	fmt.Println(<-c)
+}
+```
+위 첫 번째 예시는 송신자는 두 개인데, 수신자를 세 개로 설정하여 세 번째 수신자에서 무한 대기 상황이 발생합니다. 이에 반해 두 번째 예시는 채널에 송신하고 채널을 닫았기 때문에 그 이후에 몇개의 수신자를 입력하든 대기하지 않습니다. 두 번째 수신자까지는 `채널(버퍼)의 값을 수신하고 세 번째 수신자부터는 nil 값을 반환`합니다. <br>
+
+채널을 닫으면 `무한 대기 상황을 미연에 방지`할 수 있습니다. 그리고 채널을 닫을 때 특징이 있습니다. <br>
+```
+채널을 닫은 후에 데이터를 채널에 송신하면 'send on closed channel' 라는 메시지와 함께 panic이 발생한다.
+채널의 데이터를 모두 수신하고 또 수신하면 nil 값을 반환합니다.
+수신자를 의미하는 "<- 채널이름"은 두 개의 값을 반환합니다. 첫 번째는 채널 데이터, 두 번째는 채널의 개폐 여부를 알려주는 true/false 값입니다. 채널이 열려있다면 'true', 닫혀있다면 'false'를 반환합니다.
+```
+
+## 채널 range문
+---
+채널에서의 **range문**은 채널의 데이터를 채널에 `송신한 데이터의 개수만큼 접근`하는 용법입니다. 이때, **주의할 점**은 range는 `송신 채널이 닫히지 않았다면 데이터가 들어올 때까지 계속 대기`하기 때문에 데이터가 들어올 때마다 계속 접근(데이터를 수신)합니다. 따라서 range문은 `닫힌 채널의 데이터를 수신할 때 사용하는 것이 일반적`입니다. <br>
+```go
+package main
+ 
+import "fmt"
+
+func main() {
+	c := make(chan int, 10)
+
+	for i := 0; i<10; i++ {
+		c <- i
+	}
+	close(c)
+	
+	for val := range c { // <- c를 사용하지 않음
+		fmt.Println(val)
+	}
+}
+```
+range문을 사용하면 반복문에서 따로 횟수를 설정하지 않아도 채널의 모든 데이터를 접근합니다. **주의할 점**은 for val := range c{처럼  `채널 수신자인 '<- c' 를 사용하는 것이 아니라 채널 이름 c만 range문에 사용`합니다. 
+
+## 송신 전용, 수신 전용 채널
+---
+지금까지 채널에 대해 **단방향 송/수신**만 예시로 실행해봤습니다. 예를 들어, 채널에 데이터를 `송신하는 루틴은 송신만`, 채널에서 데이터를 `수신하는 루틴은 수신만` 했습니다. <br>
+그런데 사실 특별한 선언이 없으면 `채널은 송신과 수신에 있어 자유롭습니다.` 송신을 하고 이후에 수신도 할 수 있고, 다른 루틴에서도 수신을 하고 이후에 송신도 할 수 있는 것입니다. 
+채널을 함수의 매개변수로 전달할 때는 `"(매개변수이름 chan 채널데이터타입)" 형태`로 입력합니다. <br>
+```go
+package main
+ 
+import "fmt"
+
+func main() {
+	c := make(chan int)
+	
+	go channel1(c)
+	go channel2(c)
+
+	fmt.Scanln()
+}
+
+func channel1(ch chan int) {
+	ch <- 1
+	ch <- 2
+	
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
+	
+	fmt.Println("done1")
+}
+
+func channel2(ch chan int) {
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
+	
+	ch <- 3
+	ch <- 4
+	
+	fmt.Println("done2")
+}
+```
+위 코드는 `버퍼를 만들지 않았기 때문에 동기 채널`입니다. channel1 루틴은 ch에 데이터를 송신하고, channel2 루틴은 ch에서 데이터를 수신하는 작업을 두 번 반복하고, 그 다음에 반대 방향으로 같은 방법으로 송/수신을 합니다. 즉 꼭 수신 루틴과 송신 루틴을 따로 두지 않았기 때문에 `양방향으로 송/수신이 기본적으로 가능하다는 것`입니다. <br>
+
+그런데, **채널**을 함수의 매개변수로 전달하거나 반환할 때 채널로 송신만 할 것인지 수신만 할 것인지 설정할 수 있습니다. 자료형을 어떻게 선언하느냐에 따라 송/수신의 역할이 달라지는데, `"chan<- 채널데이터타입"을 입력하면 송신 전용 루틴(송신 채널)`, `"<-chan 채널데이터타입"을 입력하면 수신 전용 루틴(수신 채널)으로만 사용`할 수 있습니다. <br>
+```go
+package main
+ 
+import "fmt"
+
+func main() {
+	c := make(chan int)
+	
+	go sendChannel(c)
+	go receiveChannel(c)
+
+	fmt.Scanln()
+}
+
+func sendChannel(ch chan<- int) {
+	ch <- 1
+	ch <- 2
+	// <-ch 오류 발생
+	fmt.Println("done1")
+}
+
+func receiveChannel(ch <-chan int) {
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
+	//ch <- 3 오류 발생
+	fmt.Println("done2")
+}
+```
+
+## 송/수신 채널의 활용
+---
+특정 루틴에서 채널을 사용하기 위해서는 채널을 꼭 가지고 있어야 합니다. 위 예시 코드는 세 개의 고루틴(채널을 생성한 main 루틴, main 루틴에서 만든 채널을 가져다 쓰는 sendeChannel의 고루틴과 receiveChannel의 고루틴)이 있습니다. 채널을 사용할 때 꼭 알아야 하는 것이 있습니다. **채널**을 사용하기 위해서는 `꼭 해당 루틴에 채널이 있어야하는 것`입니다. <br>
+```go
+package main
+
+import "fmt"
+
+func main() {
+	ch := sum(10, 5)
+	
+	fmt.Println(<-ch)
+}
+
+func sum(num1, num2 int) <-chan int {
+	result := make(chan int)
+	
+	go func() {
+		result <- num1 + num2
+	}()
+	
+	return result
+}
+```
+![사진](/assets/img/study_Go/221223/1.PNG)
+
+이제는 세 개의 루틴에서 두 개의 채널로 데이터를 주고 받습니다. 한 루틴은 채널에 두 데이터를 송신하는 역할을 하고 한 루틴은 채널에 있는 데이터를 수신해서 새로운 채널에 두 데이터를 더한 값을 메인 루틴에 송신합니다. <br>
+```go
+package main
+
+import "fmt"
+
+func main() {
+	numsch := num(10, 5) 
+	result := sum(numsch)  
+	//채널 result는 수신만 할 수 있음
+	fmt.Println(<-result) 
+}
+
+func num(num1, num2 int) <-chan int {
+	numch := make(chan int)
+	
+	go func() {
+		numch <- num1
+		numch <- num2 //송신 후
+		close(numch) 
+	}()
+	
+	return numch //수신 전용 채널로 반환
+}
+
+func sum(c <-chan int) <-chan int {
+	//채널 c는 수신만 할 수 있음
+	sumch := make(chan int)
+	
+	go func() {
+		r := 0
+		for i := range c { //채널 c로부터 수신
+			r = r + i  
+		}
+		sumch <- r // 송신 후
+	}()
+	
+	return sumch //수신 전용 채널로 반환
+}
+```
+![사진](/assets/img/study_Go/221223/2.PNG)
+**눈여겨 봐야할 점**은 두 채널의 데이터가 `어느 루틴으로 송/수신되느냐`입니다. 빨간색은 데이터와 프로그램의 흐름이고,  보라, 초록, 노란색은 채널의 데이터 송/수신 흐름입니다. 그리고 하늘색은 채널을 닫았다는 것을 알려줍니다.
+```
+고루틴A는 main 루틴에서 만들어진 채널을 이용해 고루틴B에 송신합니다.
+고루틴B는 고루틴A의 데이터를 수신하기 위해 numch 채널을 매개변수로 가져와 수신합니다. 그리고 main 루틴에서 만들어진 채널을 이용해 main 루틴에 데이터를 송신합니다.
+```

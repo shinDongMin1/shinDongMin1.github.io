@@ -1,0 +1,423 @@
+---
+layout: post
+title: 함수
+subtitle: GO
+date: '2022-12-06 00:00:01 +0900'
+categories: study
+tags: go
+image:
+  path: /assets/img/study_Go/main.PNG
+---
+
+# 함수
+함수에 대해 알아보자.
+
+<!--more-->
+
+## 함수
+---
+**프로그래밍**을 하기 전에 `어떤 현상이나 문제에 대해 조사하고 분석하여 솔루션을 만들기 위해 설계하고 구현하며 유지보수`해야 합니다.
+제가 이 말을 하는 이유는 프로그래밍에 있어서 `설계(Design)가 상당히 중요`하다는 것을 알려주기 위해서입니다. **설계의 가장 기본**이자 전부라고 할 수 있는 것이 이번에 배우게 될 `'함수'`입니다.  
+함수는 특정 기능을 위해 만든 여러 문장을 묶어서 실행하는 코드 블록 단위입니다. 쉽게 말해, 프로그램의 특정 기능들을 기능별로 묶어 구현해 놓은 것입니다. <br>
+**Go언어**에서 쓰이는 함수에 대해 먼저 선언은 `"func 함수이름 (매개변수이름 매개변수형) 반환형"`입니다. 형식과 함께 기본적인 특징을 알아보겠습니다. <br>
+```
+1. 함수를 선언할 때 쓰는 키워드는 'func'이다.
+2. '반환형'이 괄호(()) 뒤에 명시된다. 물론 '매개변수형'도 '매개변수이름' 뒤에 명시된다.
+3. 함수는 패키지 안에서 정의되고 호출되는 함수가 꼭 호출하는 함수 앞에 있을 필요는 없다. 
+4. '반환값'이 여러 개일 수 있다. 이럴 때는 '반환형'을 괄호로 묶어 개수만큼 입력해야한다. ((반환형1, 반환형2)형식, 두 형이 같더라도 두 번 써야 한다)
+5. 블록 시작 브레이스({)가 함수 선언과 동시에 첫 줄에 있어야 한다(모든 용법을 이렇게 쓰는 것이 좋습니다).
+```
+**다른 언어**들은 `'반환형'을 괄호 앞`에 쓰는 경우가 많습니다. **Go언어**는 `괄호 뒤에 적을 수 있도록 주의`해야합니다. 
+그리고 `객체 지향`을 따르는 언어이기 때문에 `꼭 앞에 명시하지 않아도` 됩니다. <br>
+여기서 **특이한 점**은 **Go언어**에서는 `반환 값도 여러 개`일 수 있다는 것입니다. 반환형이 꼭 한 개가 아닐 수도 있다는 점을 기억해야합니다. <br>
+```go
+package main
+
+import "fmt"
+
+/*기능들만 모아놓은 함수들*/
+func guide() { //매개변수 X 반환 값 X
+	fmt.Println("두 정수를 입력받고 곱한 결과를 출력하는 프로그램입니다.\n두 정수를 차례로 띄어 써주세요.")
+	fmt.Print("두 정수를 입력해주세요 :")
+}
+
+func input() (int, int) { //매개변수 X 반환 값 O(두 개)
+	var a, b int
+	fmt.Scanln(&a, &b)
+	return a, b
+}
+
+func multi(a, b int) int { //매개변수 O, 반환 값 O
+	return a * b
+}
+
+func printResult(num int) { //매개변수 O, 반환 값 X
+	fmt.Printf("결과값은 %d입니다. 프로그램을 종료합니다.\n", num)
+}
+
+func main() { //간결해진 main문
+	guide()
+	num1, num2 := input()
+	result := multi(num1, num2)
+	printResult(result)
+}
+```
+
+## 전역변수와 지역변수
+---
+**매개변수**는 `값 자체를 전달하는 방식(Pass by value)`과 `값의 주소를 전달하는 방식(Pass by reference)`이 있습니다.
+이 개념을 매개변수의 적용하기 위해서는 `지역변수와 전역변수의 개념`에 대한 이해가 선행되어야 합니다. 왜냐하면
+매개변수에 전달하려는 변수가 어떤 유형의 변수이냐에 따라 사용 방법과 결과가 다르기 때문입니다. <br>
+따라서 이 두 변수는 두 가지에 **차이점**이 있습니다. <br>
+```
+메모리에 존재하는 시간
+변수에 접근할 수 있는 범위 
+```
+그리고 전역변수는 프로그램의 구조를 복잡하게 만들고 사용빈도와 상관 없이 프로그램이 끝날때까지 메모리를 차지하고있기 때문입니다. 따라서 `전역변수를 사용하는 것은 신중`해야합니다. <br>
+
+## 매개변수
+---
+**Go언어**에서 `함수는 "func 함수이름 (매개변수이름 매개변수형) 반환형"`이 기본적인 형식이라고 배웠습니다. 그중 **Go언어**에서
+`매개변수는 Pass by value, Pass by reference, 가변 인자`에 대해 알면 됩니다. 가변 인자는 변수의 접근 범위 내용과 좀 다르지만 매개변수와 관련된 내용이기 때문에 알아보겠습니다. <br>
+
+### 1. Pass by value
+---
+**Pass by value**는 인자의 `값을 복사해서 전달`하는 방식입니다. 따라서 복사한 값을 함수 안에서 어떠한 연산을 하더라도 원래 값은 변하지 않습니다. **함수를 호출**할 때는 `"함수이름(변수이름)"`만 입력하면 됩니다. <br>
+```go
+package main
+
+import "fmt"
+
+func printSqure(a int) {
+	a *= a
+		
+	fmt.Println(a)
+}
+func main() {
+	a := 4 //지역변수 선언
+		
+	printSqure(a)
+		
+	fmt.Println(a)
+}
+```
+
+### 2. Pass by reference
+---
+**Go언어**는 분명 `객체 지향을 따른다고 했지만` 형태와 용법을 보았다시피 `C언어와 비슷한 모습`을 보입니다. 우리가 지금 Pass by value와 Pass by reference를 구분해 배우는 것은 이러한 이유 때문입니다. 따라서 **Go언어**에서는 C/C++ 언어에서 핵심 개념인 `'포인터'라는 개념을 지원`합니다. <br>
+`('&' : 주소, '*' : 직접참조)`만 알아두세요. **C언어**에서 쓰이는 포인터에는 `좀 더 다양하고 복잡한 용법`이 있습니다. 하지만 **Go언어**는 포인터의 `핵심 개념만 사용`하도록 제공합니다.
+매개변수를 pass by reference로 사용하기 위해 포인터에 대한 개념과 C/C++ 언어에서 사용되는 포인터와의 **차이점**을 알아야합니다. <br>
+```
+1. C언어에서는 배열이름 자체가 배열의 첫번째 인덱스 요소의 주솟값인데 Go언어는 그런 것이 없습니다. 주솟값은 어떤 변수 앞에 &를 붙이는 것만 기억하면 됩니다.
+2. C언어에서는 "*(배열이름+인덱스)"는 "배열이름[인덱스]"와 같은 기능을 했는데 Go언어는 그런 것이 없습니다. 직접 참조를 원하면 포인터 변수 앞에 *를 붙이는 것만 기억하면 됩니다.
+3. 함수를 호출할 때는 주솟값 전달을 위해 "함수이름(&변수이름)"을 입력하고 함수에서 매개변수이름을 입력할 때는 값을 직접 찹조하기 위해 *을 매개변수형 앞에 붙입니다. 그리고 함수 안에서 매개변수앞에 모두 *를 붙여야합니다.
+```
+```go
+package main
+
+import "fmt"
+
+func printSqure(a *int) {
+	*a *= *a
+	
+	fmt.Println(*a)
+}
+func main() {
+	a := 4         //지역변수 선언
+	
+	printSqure(&a) //참조를 위한 a의 주솟값을 매개변수로 전달
+	
+	fmt.Println(a)
+}
+```
+
+### 3. 가변 인자 함수
+---
+**'가변 인자 함수'**는 전달하는 매개변수의 개수를 고정한 함수가 아니라 함수를 호출할 때마다 `매개변수의 개수를 다르게 전달`할 수 있도록 만든 함수입니다. 
+**Go언어**의 가변 인자 함수는 동일한 형의 `매개변수를 n개 전달`할 수 있습니다. <br>
+예를 들어 숫자들을 더하는 함수를 만든다고 할 때, 더하는 값의 `개수에 따라 각각 함수를 만들 필요가 없다`는 것입니다. 가변 인자 함수를 사용할 때 몇 가지 특징을 알아보겠습니다.<br>
+```
+1. n개의 동일한 형의 매개변수를 전달합니다.
+2. 전달된 변수들은 슬라이스 형태입니다. 변수를 다룰 때 슬라이스를 다루는 방법과 동일합니다.
+3. 함수를 선언은 "func 함수이름(매개변수이름 ...매개변수형) 반환형" 형식으로 합니다. '매개변수형' 앞에 '...'을 붙이면 됩니다.
+4. 매개변수로 슬라이스를 전달할 수 있습니다. 다른 컬렉션 형태는 불가능합니다. 슬라이스를 전달할 때는 슬라이스 이름 뒤에 ...를 붙여서 "함수이름(슬라이스이름...)" 형식으로 함수를 호출하면 됩니다.
+```
+```go
+package main
+
+import "fmt"
+
+func addOne(num ...int) int {
+	var result int
+
+	for i := 0; i < len(num); i++ { //for문을 이용한 num[i] 순차 접근
+		result += num[i]
+	}
+	
+	return result
+}
+
+func addTwo(num ...int) int {
+	var result int
+
+	for _, val := range num { //for range문을 이용한 num의 value 순차 접근
+		result += val
+	}
+	
+	return result
+}
+
+func main() {
+	num1, num2, num3, num4, num5 := 1, 2, 3, 4, 5
+	nums := []int{10, 20, 30, 40}
+
+	fmt.Println(addOne(num1, num2))
+	fmt.Println(addOne(num1, num2, num4))
+	fmt.Println(addOne(nums...))
+	fmt.Println(addTwo(num3, num4, num5))
+	fmt.Println(addTwo(num1, num3, num4, num5))
+	fmt.Println(addTwo(nums...))
+}
+```
+
+## 반환값(리턴값)
+---
+**Go언어**는 `다른 언어와 다른 반환값의 특징`이 있습니다. 바로 **Go언어**에서는 `복수개의 반환값을 반환`할 수 있다는 것입니다. 
+이는 **C언어**에서 void 혹은 하나의 값만을 반환하는 것과 `대조적`입니다. 복수 반환값의 몇 가지 특징을 알아보겠습니다. <br>
+```
+1. 반환값의 개수만큼 반환형을 명시해야 합니다. 2개 이상의 반환형을 입력할 때는 괄호(())안에 명시합니다.
+2. 동일한 반환형이더라도 모두 명시해야합니다.((int, int, int)) 
+```
+```go
+package main
+
+import "fmt"
+
+func add(num ...int) (int, int) {
+	var result int
+	var count int
+	
+	for i := 0; i < len(num); i++ { //for문을 이용한 num[i] 순차 접근
+		result += num[i]
+		count++
+	}
+	
+	return result, count
+}
+
+func main() {
+	nums := []int{10, 20, 30, 40, 50}
+
+	fmt.Println(add(nums...))
+}
+```
+
+## Named Return Parameter
+---
+**Named return parameter**는 직역하면 `'이름이 붙여진 반환 인자'`입니다. 즉, 이름이 붙여진 반환 값입니다. 여러 개의 값을 반환할 때 괄호 안에 반환형을 모두 명시해야 한다고 했습니다.
+그런데 반환 값이 많고 `반환형이 다양하다면 가독성이 좋지 않을 수` 있습니다. <br>
+따라서 Named return parameter는 `반환형과 반환 값의 이름을 같이 명시`하는 것을 말합니다. <br>
+```
+1. (반환값이름1 반환형1, 반환값이름2 반환형2, 반환값이름3 반환형3, ...) 형식으로 입력합니다.
+2. "반환값이름 반환형" 자체가 변수 선언입니다. 따라서 함수 안에서 따로 선언할 필요가 없습니다. 만약 선언하면 에러가 발생합니다.
+3. 'return'을 생략하면 안 됩니다. 반환 값이 있을 때는 반드시 return을 명시해야합니다.
+4. 반환 값이 하나라도 반환값이름을 명시했다면 괄호 안에 써야합니다.
+```
+```go
+package main
+
+import "fmt"
+
+func dessertList(fruit ...string) (count int, list []string) { //여기서 이미 선언된 것이다
+
+	for i := 0; i < len(fruit); i++ {
+		list = append(list, fruit[i])
+		count++
+	}
+
+	return //생략하면 안 된다
+}
+
+func inputFruit() (list []string) { //Named return parameter는 값이 하나라도 괄호를 써야한다
+
+	for {
+		var fruit string
+		fmt.Print("과일을 입력하세요:")
+		fmt.Scanln(&fruit)
+
+		if fruit != "1" {
+			list = append(list, fruit)
+		} else {
+			fmt.Println("입력을 종료합니다.\n")
+			break //반복문을 빠져나간다
+		}
+	}
+
+	return
+}
+
+func main() {
+	fmt.Println("디저트로 먹을 과일을 입력하고 출력합니다. \n1을 입력하면 입력을 멈춥니다.\n")
+	count, list := dessertList(inputFruit()...) //함수를 변수처럼 사용할 수 있습니다
+	fmt.Printf("%d개의 과일을 입력하셨고, 입력한 과일의 리스트는 %s입니다.\n", count, list)
+}
+```
+
+## 익명 함수
+---
+**익명 함수**는 단어에서도 알 수 있듯이 `'이름이 없는 함수'`입니다. 함수의 이름을 아무렇게나 막 붙이는 경우는 없기 때문에 함수의 이름은 상징적이고 가독성에 있어 중요한 역할을 합니다. 
+예를 들어, 숫자를 더하는 기능을 하는 함수는 "add"라고 이름을 붙일 수 있습니다. 
+코드를 작성할 때 아무런 규칙 없이 마구잡이로 작성하는 것보다 코드의 기능별로 **'함수화'(선언 함수)**하는 것이 굉장히 중요하다고 배웠습니다. <br>
+그런데 함수들을 만드는 것에 단점이 있는데 바로 `'프로그램 속도 저하'`입니다. <br>
+```
+1. 함수 선언 자체가 프로그래밍 전역으로 초기화되면서 메모리를 잡아먹기 때문입니다.
+2. 기능을 수행할 때마다 함수를 찾아서 호출해야하기 때문입니다.
+```
+```go
+package main
+
+import "fmt"
+
+func main() {
+	func() {
+		fmt.Println("hello")
+	}()
+
+	func(a int, b int) {
+		result := a + b
+		fmt.Println(result)
+	}(1, 3)
+
+	result := func(a string, b string) string {
+		return a + b
+	}("hello", " world!")
+	fmt.Println(result)
+
+	i, j := 10.2, 20.4
+	divide := func(a float64, b float64) float64 {
+		return a / b
+	}(i, j)
+	fmt.Println(divide)
+}
+```
+우선 기본적인 형태에 있어서 눈에 띄는 것이 두 가지가 있습니다.
+```
+1. 함수의 이름만 없고 그 외에 형태는 동일합니다.
+2. 함수의 블록 마지막 브레이스(}) 뒤에 괄호(())를 사용해 함수를 바로 호출합니다. 이때, 괄호 안에 매개변수를 넣을 수 있습니다.
+```
+선언 함수는 반환 값을 변수에 초기화함으로써 변수에 바로 할당이 가능합니다. 익명 함수도 똑같은 기능을 하는데, 여기서 **차이점**은 `변수에 초기화한 익명 함수는 변수 이름을 함수의 이름처럼 사용`할 수 있다는 것입니다. <br>
+```go
+package main
+
+import "fmt"
+
+func addDeclared(nums ...int) (result int) {
+	for i := 0; i < len(nums); i++ {
+		result += nums[i]
+	}
+	return
+}
+
+func main() {
+	var nums = []int{10, 12, 13, 14, 16}
+
+	addAnonymous := func(nums ...int) (result int) {
+		for i := 0; i < len(nums); i++ {
+			result += nums[i]
+		}
+		return
+	}
+
+	fmt.Println(addAnonymous(nums...))
+	fmt.Println(addDeclared(nums...))
+}
+```
+마치 `Python의 람다(lambda)함수와 Java의 델리게이트(delegate) 함수`랑 비슷합니다. <br>
+그리고 **선언 함수와 익명 함수**는 `프로그램 내부적으로 읽는 순서가 다릅`니다. **선언 함수**는 `프로그램이 시작됨`과 동시에 모두 읽습니다. <br> 
+하지만 **익명 함수**는 위 예시들처럼 그 자리에서 실행되기 때문에 `해당 함수가 실행되는 곳`에서 읽습니다. 즉, 선언 함수보다 익명 함수가 나중에 읽힙니다. <br>
+```go
+package main
+
+import "fmt"
+
+func add() {
+	fmt.Println("선언 함수를 호출했습니다.")
+}
+
+func main() {
+
+	add := func() {
+		fmt.Println("익명 함수를 호출했습니다.")
+	}
+
+	add()
+}
+```
+
+## 일급 함수(First-Class Function)
+---
+함수의 핵심 기능만 유연하게 사용할 수 있는 **'익명 함수'**에 대해 알아봤습니다. 그런데 익명 함수의 사용은 **Go언어**에서의 `함수가 '일급 함수'이기 때문에 가능한 것`입니다. <br>
+**일급 함수**라는 의미는 `함수를 기본 타입과 동일하게 사용`할 수 있어 함수 자체를 다른 함수의 매개변수로 전달하거나 다른 함수의 반환 값으로 사용될 수 있다는 것입니다. <br>
+```go
+package main
+
+import "fmt"
+
+func calc(f func(int, int) int, a int, b int) int {
+	result := f(a, b)
+	return result
+}
+
+func main() {
+	multi := func(i int, j int) int {
+		return i * j
+	}
+	
+	r1 := calc(multi, 10, 20)
+	fmt.Println(r1)
+
+	r2 := calc(func(x int, y int) int { return x + y }, 10, 20)
+	fmt.Println(r2)
+}
+```
+**Go언어**에서의 `함수는 일급 함수`이기 때문에 매개변수로 사용할 수 있고, 변수에 초기화 할 수 있습니다.
+함수를 **매개변수형**으로 사용할 때는 `"매개변수함수이름 func(전달받는함수의매개변수형) 전달받는함수의반환형" 형태`로 선언합니다. <br>
+
+## type문을 사용한 함수 원형 정의
+---
+전달 받는 함수가 매개변수가 5개고 반환형이 6개일 때는 그 함수를 매개변수로 사용할 때마다 그만큼을 명시해야 합니다. 따라서 이를 극복하기 위해 **Go언어**에서는 `'type'문을 사용해 함수의 원형을 정의`하고 사용자가 정의한 이름을 형으로써 사용합니다. 이러한 `사용자의 Custom Type`은 **C언어**의 `'구조체' 개념이나 typeof의 개념과 유사`합니다. <br>
+```go
+package main
+
+import "fmt"
+
+//함수 원형 정의
+type calculatorNum func(int, int) int 
+type calculatorStr func(string, string) string
+
+func calNum(f calculatorNum, a int, b int) int {
+	result := f(a, b)
+	return result
+}
+
+func calStr(f calculatorStr, a string, b string) string {
+	sentence := f(a, b)
+	return sentence
+}
+
+func main() {
+	multi := func(i int, j int) int {
+		return i * j
+	}
+	duple := func(i string, j string) string {
+		return i + j + i + j
+	}
+
+	r1 := calNum(multi, 10, 20)
+	fmt.Println(r1)
+
+	r2 := calStr(duple, "Hello", " Golang ")
+	fmt.Println(r2)
+}
+```
+이처럼 프로그래밍은 끊임없이 효율성을 높이는 작업입니다. **type문**은 `함수 원형 정의 뿐만이 아니라 구조체, 인터페이스 등을 정의`하기 위해 사용됩니다. <br>
