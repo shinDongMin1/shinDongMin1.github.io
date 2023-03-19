@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[AWS] Amazon STS 이해"
+title: "[AWS] Amazon STS"
 subtitle: AWS
 date: '2023-03-01 00:00:01 +0900'
 category: study
@@ -47,5 +47,3 @@ AWS에서 제공하는 **Amazon STS**를 이해해보자.
 
 * Ref
   - [AWS ID Credentials Temp Userguide](https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_credentials_temp.html)
-
-</span>
