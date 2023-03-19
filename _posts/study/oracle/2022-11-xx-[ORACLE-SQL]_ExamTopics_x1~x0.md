@@ -4,7 +4,7 @@ title: "[ORACLE-SQL] ExamTopics x1~x0"
 subtitle: ORACLE
 date: '2022-xx-xx 14:00:00 +0900'
 category: study
-tags: oracle examtopics 1z0-071
+tags: oracle
 image:
   path: /assets/img/study_Oracle/2022-xx-xx-[ORACLE-SQL]_ExamTopics_x1~x0/logo.png
 ---

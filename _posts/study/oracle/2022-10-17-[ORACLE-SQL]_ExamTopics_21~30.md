@@ -4,7 +4,7 @@ title: "[ORACLE-SQL] ExamTopics 21~30"
 subtitle: ORACLE
 date: '2022-10-17 14:00:00 +0900'
 category: study
-tags: oracle examtopics 1z0-071
+tags: oracle
 image:
   path: /assets/img/study_Oracle/2022-10-17-[ORACLE-SQL]_ExamTopics_21~30/logo.png
 ---
