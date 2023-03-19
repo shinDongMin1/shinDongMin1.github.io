@@ -3,8 +3,7 @@
 
 # Uncomment and set the URL of your site (with protocol, e.g. `https://`)
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
-# url:                   https://lazyren.github.io
-url: "https://shinDongMin1.github.io" 
+# url:                   https://heoj10272.github.io
 
 # Uncomment and set the "base URL" of your site.
 # When your site is in a subdirectory, set to `/<name of directory>`,
@@ -21,22 +20,22 @@ url: "https://shinDongMin1.github.io"
 lang:                  ko-KR, en-US
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 DongMin Shin
+title:                 JaeYoung Heo
 
 timezone:              Asia/Seoul
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  DongMin's Tech blog.
-  Studying for Back-end.
+  JaeYoung's Tech blog.
+  Studying for DBA.
 
 # A shorter description for the sidebar.
 tagline:               >
-  동민's Tech blog.
+  JaeYoung's Tech blog.
 
 # A list of keywords for your blog
-keywords:              ["DBA", "C++", "Algorithm", "Spring"]
+keywords:              ["DBA", "C++", "Algorithm", "Cloud"]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -46,14 +45,14 @@ logo:                  /assets/img/me.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                DongMin Shin
-  email:               sddu9@naver.com
+  name:                JaeYoung Heo
+  email:               heoj10272@skuniv.ac.kr
   picture:             /assets/img/me.png
   social:
     #linkedin:          daein-lee-3b6ba9139
-    github:            shinDongMin1
+    github:            heoj10272
     #stackoverflow:     4294737
-    email:             sddu9@naver.com
+    email:             heoj10272e@skuniv.ac.kr
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -68,7 +67,7 @@ legal:
 #     url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2022. All rights reserved. 신동민의 블로그
+copyright:             © 2022. All rights reserved.
 
 # Format of the permalinks
 # permalink:             /blog/:categories/:year-:month-:day-:title/
@@ -92,7 +91,7 @@ excerpt_separator:     <!--more-->
 
 # Sidebar image and theme color of the site.
 accent_image:
-  background:          center / cover url(/assets/img/main_left.JPG)
+  background:          center / cover url(/assets/img/hotel_room_night_3.png)
   overlay:             false
 accent_color:          rgb(0,174,239)
 
@@ -190,7 +189,7 @@ kramdown:
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Analytics from your page, remove the line below.
-google_analytics:      UA-68290006-3
+google_analytics:      G-LK9TDV2KQB
 
 # Set which comment system to use
 comments:
@@ -199,31 +198,31 @@ comments:
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-# disqus:                lazyrengithub
+ #disqus:                heoj10272
 
 # You must install utterances github app before use.(https://github.com/apps/utterances)
 # Make sure all variables are set properly. Check below link for detail.
 # https://utteranc.es/
-# utterances:
-#   repo:                "LazyRen/LazyRen.github.io"
-#   issue-term:          "pathname"
-#   label:               "Comments"
-#   theme:               "photon-dark"
+#utterances:
+#  repo:                "heoj10272/blog-comments-repo"
+#  issue-term:          "pathname"
+#  label:               "Comments"
+#  theme:               "photon-dark"
 
 # You must install giscus github app before use.(https://github.com/apps/giscus)
 # Make sure all variables are set properly. Check below link for detail.
 # https://giscus.vercel.app/
-# giscus:
-#  repo:                "LazyRen/LazyRen.github.io"
-#  repo-id:             "MDEwOlJlcG9zaXRvcnkyNzU4Mjk1NTc="
-#  category:            "Comments"
-#  category-id:         "DIC_kwDOEHDTNc4B-MIg"
-#  mapping:             "pathname"
-#  reaction-enabled:    "1"
-#  data-emit-metadata:  "0"
-#  theme:               "dark_dimmed"
-#  data-lang:           "en"
-#  crossorigin:         "anonymous"
+giscus:
+  repo:                "heoj10272/heoj10272.github.io"
+  repo-id:             "496564901"
+  category:            "Comments"
+  category-id:         "DIC_kwDOEHDTNc4B-MIg"
+  mapping:             "pathname"
+  reaction-enabled:    "1"
+  data-emit-metadata:  "0"
+  theme:               "dark_dimmed"
+  data-lang:           "en"
+  crossorigin:         "anonymous"
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
@@ -319,7 +318,7 @@ hydejack:
   # Note that dark mode only works in the PRO version of Hydejack.
   dark_mode:
     # Set to `true` to always use the dark theme.
-    always:            false
+    always:            true
 
     # Set to `true` to use the dark theme based on visitors' preference (OS setting).
     dynamic:           false
@@ -394,7 +393,7 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 # Where you proof that you own this site (used by jekyll-seo-tag)
-google_site_verification: "zIn7l_GwuOi4WnyRQsdhI9Jpn6IAs0SLR_4HG8OZzsM"
+# google_site_verification: "zIn7l_GwuOi4WnyRQsdhI9Jpn6IAs0SLR_4HG8OZzsM"
 # -- or --
 # webmaster_verifications:
 #   google:              <verification-id>
