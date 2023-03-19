@@ -4,7 +4,7 @@ title: "[AWS] Amazon Neptune"
 subtitle: AWS
 date: '2023-02-27 00:00:02 +0900'
 category: study
-tags: aws aws-base
+tags: aws
 image:
   path: /assets/img/study_AWS/aws_logo.png
 ---

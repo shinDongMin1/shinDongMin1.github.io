@@ -4,7 +4,7 @@ title: "[AWS] Windows에서 EC2 인스턴스 접속하기 (PuTTY)"
 subtitle: AWS
 date: '2022-05-28 00:00:01 +0900'
 category: study
-tags: aws aws-practice
+tags: aws
 image:
   path: /assets/img/study_AWS/aws_logo.png
 ---

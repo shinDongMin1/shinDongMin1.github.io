@@ -4,7 +4,7 @@ title: "[AWS] Amazon STS"
 subtitle: AWS
 date: '2023-03-01 00:00:01 +0900'
 category: study
-tags: aws aws-base
+tags: aws
 image:
   path: /assets/img/study_AWS/aws_logo.png
 ---
