@@ -4,7 +4,7 @@ title: "[AWS] Instance Purchasing"
 subtitle: AWS
 date: '2023-02-16 00:00:02 +0900'
 category: study
-tags: aws
+tags: aws aws-base
 image:
   path: /assets/img/study_AWS/aws_logo.png
 ---

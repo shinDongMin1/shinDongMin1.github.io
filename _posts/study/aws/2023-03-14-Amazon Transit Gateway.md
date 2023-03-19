@@ -4,7 +4,7 @@ title: "[AWS] Transit Gateway"
 subtitle: AWS
 date: '2023-03-14 00:00:01 +0900'
 category: study
-tags: aws
+tags: aws aws-base
 image:
   path: /assets/img/study_AWS/aws_logo.png
 ---

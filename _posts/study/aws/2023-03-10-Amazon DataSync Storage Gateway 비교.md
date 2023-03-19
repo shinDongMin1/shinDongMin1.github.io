@@ -4,7 +4,7 @@ title: "[AWS] DataSync와 Storage Gateway 비교"
 subtitle: AWS
 date: '2023-03-10 00:00:02 +0900'
 category: study
-tags: aws
+tags: aws aws-base
 image:
   path: /assets/img/study_AWS/aws_logo.png
 ---
