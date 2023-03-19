@@ -3,7 +3,7 @@
 
 # Uncomment and set the URL of your site (with protocol, e.g. `https://`)
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
-# url:                   https://heoj10272.github.io
+# url:                   https://shinDongMin1.github.io
 
 # Uncomment and set the "base URL" of your site.
 # When your site is in a subdirectory, set to `/<name of directory>`,
@@ -20,22 +20,22 @@
 lang:                  ko-KR, en-US
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 JaeYoung Heo
+title:                 DongMin Shin
 
 timezone:              Asia/Seoul
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  JaeYoung's Tech blog.
-  Studying for DBA.
+  DongMin's Tech blog.
+  Studying for Back-end.
 
 # A shorter description for the sidebar.
 tagline:               >
-  JaeYoung's Tech blog.
+  동민's Tech blog.
 
 # A list of keywords for your blog
-keywords:              ["DBA", "C++", "Algorithm", "Cloud"]
+keywords:              ["DBA", "C++", "Algorithm", "Spring", "Cloud"]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -45,14 +45,14 @@ logo:                  /assets/img/me.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                JaeYoung Heo
-  email:               heoj10272@skuniv.ac.kr
+  name:                DongMin Shin
+  email:               sddu9@naver.com
   picture:             /assets/img/me.png
   social:
     #linkedin:          daein-lee-3b6ba9139
-    github:            heoj10272
+    github:            shinDongMin1
     #stackoverflow:     4294737
-    email:             heoj10272e@skuniv.ac.kr
+    email:             sddu9@naver.com
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -67,7 +67,7 @@ legal:
 #     url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2022. All rights reserved.
+copyright:             © 2022. All rights reserved. 신동민의 블로그
 
 # Format of the permalinks
 # permalink:             /blog/:categories/:year-:month-:day-:title/
@@ -198,13 +198,13 @@ comments:
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
- #disqus:                heoj10272
+ #disqus:                shindongmin1
 
 # You must install utterances github app before use.(https://github.com/apps/utterances)
 # Make sure all variables are set properly. Check below link for detail.
 # https://utteranc.es/
 #utterances:
-#  repo:                "heoj10272/blog-comments-repo"
+#  repo:                "shindongmin1/blog-comments-repo"
 #  issue-term:          "pathname"
 #  label:               "Comments"
 #  theme:               "photon-dark"
@@ -213,7 +213,7 @@ comments:
 # Make sure all variables are set properly. Check below link for detail.
 # https://giscus.vercel.app/
 giscus:
-  repo:                "heoj10272/heoj10272.github.io"
+  repo:                "shindongmin1/shindongmin1.github.io"
   repo-id:             "496564901"
   category:            "Comments"
   category-id:         "DIC_kwDOEHDTNc4B-MIg"
