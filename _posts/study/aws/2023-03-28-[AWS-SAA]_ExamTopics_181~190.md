@@ -16,23 +16,21 @@ SAA Examtopics 181~190번 문제를 풀어보자.<br>
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 181 ❌⭕
+## Prob. 181
 
 이제 온프레미스에서 웹 애플리케이션을 호스팅하는 회사는 AWS로 마이그레이션하고 최신 버전의 프로그램을 시작할 준비가 되었습니다. 조직은 URL query string에 따라 AWS 또는 온프레미스 호스팅 애플리케이션으로 요청을 라우팅해야 합니다. 온프레미스 애플리케이션은 인터넷을 통해 액세스할 수 없으며 Amazon VPC와 회사 데이터 센터 간에 VPN 연결이 형성됩니다. 회사는 ALB(Application Load Balancer)를 사용하여 이 애플리케이션을 배포할 계획입니다.
 
 어떤 솔루션이 이러한 기준을 충족합니까?
 
-A. Use two ALBs: one for on-premises and one for the AWS resource. Add hosts to each target group of each ALB. Route with Amazon Route 53 based on the URL query string.
+A. 두 개의 ALB를 사용합니다. 하나는 사내용이고 다른 하나는 AWS 리소스용입니다. 각 ALB의 각 대상 그룹에 호스트를 추가합니다. URL 쿼리 문자열을 기준으로 Amazon Route 53을 사용하여 라우팅합니다.
 
-B. Use two ALBs: one for on-premises and one for the AWS resource. Add hosts to the target group of each ALB. Create a software router on an EC2 instance based on the URL query string.
+B. 두 개의 ALB를 사용합니다. 하나는 사내용이고 다른 하나는 AWS 리소스용입니다. 각 ALB의 대상 그룹에 호스트를 추가합니다. URL 쿼리 문자열을 기반으로 EC2 인스턴스에 소프트웨어 라우터를 생성합니다.
 
-C. Use one ALB with two target groups: one for the AWS resource and one for on premises. Add hosts to each target group of the ALB. Configure listener rules based on the URL query string.
+C. 하나의 ALB를 AWS 리소스용으로 하나는 사내용으로 두 개의 대상 그룹과 함께 사용합니다. ALB의 각 대상 그룹에 호스트를 추가합니다. URL 쿼리 문자열을 기반으로 수신기 규칙을 구성합니다.
 
-D. Use one ALB with two AWS Auto Scaling groups: one for the AWS resource and one for on premises. Add hosts to each Auto Scaling group. Route with Amazon Route 53 based on the URL query string.
+D. 두 개의 AWS Auto Scaling 그룹(하나는 AWS 리소스용, 다른 하나는 사내용)과 함께 하나의 ALB를 사용합니다. 각 자동 스케일링 그룹에 호스트를 추가합니다. URL 쿼리 문자열을 기준으로 Amazon Route 53을 사용하여 라우팅합니다.
 
 <br>
 <hr/>
@@ -46,24 +44,27 @@ Answer : C
 
 해설 : 
 
+URL query string에 따라 AWS 또는 온프레미스 호스팅 요청을 라우팅 문제 요점.
+
+온프레미스 애플리케이션은 인터넷을 통해 액세스할 수 없으며 Amazon VPC와 회사 데이터 센터 간에 VPN 연결.
+
 ALB에는 경로를 기준으로 대상을 지정할 수 있는 여러 대상 그룹이 있을 수 있습니다.<br>
 또한 IP 대상 그룹 유형은 사내 서버 주소를 가질 수 있습니다.
 
-A- I don't find Anything about routing with query string in Route53<br>
-B - Create an EC2 its not an option.<br>
-C - You can use listeners to routing with query string and have only one LB is better in management.<br>
-D - Auto-scaling group for on-premises don't make sense for me<br>
+A 탈락 -> Route53에서 쿼리 문자열이 있는 라우팅에 대해 아무것도 찾을 수 없어서 부적합.
 
-1차 시도 : A 틀림<br>
-2차 시도 : C 맞음<br>
+B 탈락 -> EC2를 생성하는 것은 문제의 옵션이 아니라 부적합.
+
+C 정답 -> 수신기로 쿼리 문자열을 사용하여 라우팅할 수 있으며 하나의 LB만 더 잘 관리할 수 있어서 적합.
+
+D 탈락 -> 사내 자동 확장 그룹은 스트링에 따른 분산이랑은 의미가 없어서 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 182 ❌⭕
+## Prob. 182
 
 등록된 상위 ​​도메인에서 회사는 다양한 비즈니스 라인을 위한 많은 웹사이트를 호스팅합니다. 하위 도메인에 따르면 이러한 웹 사이트를 방문하는 모든 사람은 적절한 백엔드 Amazon EC2 인스턴스로 연결됩니다. 정적 웹 페이지, 그림 및 PHP 및 JavaScript와 같은 서버 측 프로그래밍은 모두 웹 사이트에서 호스팅됩니다.
 특정 웹사이트는 비즈니스 시작 후 처음 2시간 동안 트래픽이 급증한 후 나머지 시간 동안 지속적으로 사용됩니다. 솔루션 설계자는 비용 효율적이면서도 특정 트래픽 패턴에 자동으로 용량을 조정하는 시스템을 구축해야 합니다.
@@ -92,23 +93,47 @@ Answer : C, D
 
 해설 : 
 
-"웹 사이트는 정적 웹 페이지, 이미지 및 PHP와 같은 서버측 스크립트를 호스팅합니다. JavaScript입니다."<br>
-E. (잘못됨). Amazon S3는 서버 측 스크립팅을 지원하지 않습니다.<br>
-A. (유효하지 않습니다)<br>
-B. (잘못됨)NLB는 4계층에서 실행되며 애플리케이션의 가용성을 보장할 수 없습니다.<br>
+비용 효율적이면서도 특정 트래픽 패턴에 자동으로 용량을 조정 문제 요점.
+
+웹 사이트는 정적 웹 페이지, 이미지 및 PHP 및  JavaScript와 같은 서버측 스크립트를 호스팅합니다.
+2시간 동안 트래픽이 급증한 후 나머지 시간 동안 지속적으로 사용.
+
+**AWS Batch**
+대규모 배치 처리, ML 모델 훈련 및 분석.
+AWS Batch를 사용하면 개발자, 과학자, 엔지니어가 수십만 개의 배치 및 기계 학습 컴퓨팅 작업을 효율적으로 실행하면서 컴퓨팅 리소스를 최적화하여 결과 분석 및 문제 해결에 집중.
+자료를 수집하고 S3에 저장하여 Batch로 분석함.
+
+금융 서비스 분석 자동화 실행/데이터를 캡처하기 약물 및 게놈 서열 스크리닝/시각 효과 렌더링 자동화/기계 학습 모델 훈련.
+
+**Network Load Balancer**
 네트워크 로드 밸런서는 가용성을 확인할 때 애플리케이션 A와 애플리케이션 B를 구분하지 않지만(실제로 포트가 다르지 않으면 구분할 수 없음) 애플리케이션 로드 밸런서는 사용 가능한 애플리케이션 계층 데이터를 검사하여 두 애플리케이션 사이를 구분합니다. <br>
 이러한 차이는 네트워크 로드 밸런서가 충돌했거나 오프라인 상태인 애플리케이션에 요청을 전송하게 될 수 있지만 애플리케이션 로드 밸런서는 이와 같은 실수를 하지 않는다는 것을 의미합니다
 
-1차 시도 : C, E 틀림<br>
-2차 시도 : C, D 맞음<br>
+**Amazon S3 website hosting**
+Amazon S3를 사용하여 정적 웹 사이트를 호스팅할 수 있습니다. 정적 웹 사이트에서 개별 웹 페이지에는 정적 콘텐츠가 포함됩니다. 클라이언트 쪽 스크립트도 포함될 수 있습니다.
+
+또 다른 이유는 CloudFront를 앞에 두지 않고는 S3 버킷에 대한 사용자 지정 DNS 진입점을 가질 수 없기 때문입니다(IIRC).
+Route 53 별칭 레코드를 사용하여 S3에서 사용자 지정 도메인 이름을 사용할 수 있습니다. 그러나 SSL은 아닙니다.
+
+반대로 동적 웹 사이트는 PHP, JSP 또는 ASP.NET 와 같은 서버 측 스크립트를 포함한 서버 측 처리에 의존합니다. Amazon S3는 서버 측 스크립팅을 지원하지 않습니다.
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html
+
+A 탈락 -> Batch와는 상관없는 문제라서 부적합.
+
+B 탈락 -> NLB는 4계층에서 실행되며 애플리케이션의 가용성을 보장할 수 없어서 부적합.
+
+C 정답 -> ALB로 어디로 트래픽이 가는지 IP+포트+패킷을 분산하여 적합.
+
+D 정답 -> 특정 트래픽 패턴에 자동으로 용량을 조정 정책을 넣어서 2시간동안 트래픽이 급증할 때에 적합.
+
+E 탈락 -> Amazon S3는 서버 측 스크립팅을 지원하지 않아서 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 183 ⭕⭕
+## Prob. 183
 
 웹 애플리케이션으로서 한 기업이 새로운 비디오 게임을 구축했습니다. 애플리케이션은 VPC의 MySQL용 Amazon RDS를 사용하여 3계층 설계로 배포됩니다. 여러 플레이어가 데이터베이스 계층을 통해 온라인에서 동시에 경쟁합니다. 게임 제작자는 거의 실시간으로 상위 10개 점수판을 표시하고 플레이어가 기존 점수를 유지하면서 게임을 일시 중지했다가 다시 시작할 수 있기를 원합니다.
 
@@ -134,18 +159,46 @@ Answer : B
 
 해설 : 
 
+거의 실시간으로 점수판을 표시하고 기존 점수를 유지하면서 게임을 일시 중지했다가 다시 시작 가능 문제 요점.
+
+VPC의 MySQL용 Amazon RDS를 사용하여 3계층 설계로 배포.
+여러 플레이어가 데이터베이스 계층을 통해 온라인에서 동시에 경쟁.
+
 Redis용 ElastiCache는 확장 가능하고 안전한 완전관리형 서비스로서, 웹, 모바일 앱, 게임, 광고 기술 및 IoT와 같은 고성능 사용 사례에 지원하는 데 매우 적합한 서비스
 
-1차 시도 : B 맞음<br>
-2차 시도 : B 맞음<br>
+* **Memcached**
+    + **널리 채택된 메모리 객체 캐싱 시스템**
+    + ElastiCache는 `Memcached와 프로토콜이 호환`되므로 **기존 Memcached 환경에서 사용하는 주요 도구가 ElastiCache에서 거의 수정되지 않고 작동함**
+    + **Memcached 클러스터**는 **리전의 가용 영역 별로 생성 가능**
+    + `클러스터 내에` **노드를 추가할 수록 데이터 저장 공간이 늘어남**
+    + **스냅샷**과 **Read Replica**를 **지원하지 않음**
+    + `MultiThreaded architecture`
+
+* **Redis**
+    + **빠른 오픈 소스 인-메모리 데이터 스토어 및 캐시**
+    + `다양한 데이터 형식을 제공`하는 **키-값(Key-Value) 데이터 저장소**
+    + **스냅샷**과 **Read Replica**를 **지원함**
+    + 마스터 노드에 장애가 발생할 경우 자동으로 Read Replica를 마스터로 승격시키는 **Failover 기능 지원**
+    + **클러스터 구성 불가**, 따라서 `노드를 추가해도` 전체 메모리 용량이 늘어나지 않으므로 **데이터 저장 용량은 각 캐시 노드의 메모리 용량에 한함**
+    + 캐시 노드의 `메모리 용량을 넘어서는` 데이터를 저장하기 위해서는 **애플리케이션 레벨에서의 샤딩 구현 필요**
+    + **한 리전 안의 여러 가용 영역에 생성 가능**
+    + Redis용 ElastiCache는 `확장 가능하고 안전한 완전관리형` 서비스로서, 웹, 모바일 앱, 게임, 광고 기술 및 IoT와 같은 `고성능 사용 사례에 지원`하는 데 적합한 서비스
+    + `MultiThreaded architecture`가 아님
+
+A 탈락 -> 이 캐시는 다양한 트래픽을 많이 처리할 수 있을 것 같으나 가용성이나 성능 부분에서 부적합.
+
+B 정답 -> 고성능의 캐시로 동시에 같은 트래픽을 처리할 것 같아 적합.
+
+C 탈락 -> Amazon CloudFront는 클라우드를 관리하는데 전세계인 위치적으로는 엣지 로케이션(캐싱)을 임시 저장 하지만 실시간으로는 부적합.
+
+D 탈락 -> RDS에 읽기 복제본이여도 디스크 기반이기 때문에 실시간이 아니라 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 184 ⭕⭕
+## Prob. 184
 
 기업에서 온프레미스 NAS(Network Attached Storage)를 Amazon Web Services(AWS)로 마이그레이션하려고 합니다. 회사는 VPC 내부의 모든 Linux 인스턴스에서 데이터에 액세스할 수 있도록 하고 데이터 저장소에 대한 변경 사항이 이를 사용하는 모든 인스턴스에서 즉시 동기화되도록 보장하고자 합니다. 대량의 데이터는 드물게 보는 반면 특정 파일은 많은 사람들이 동시에 읽습니다.
 
@@ -171,31 +224,40 @@ Answer : D
 
 해설 : 
 
+가장 비용 효율적인 옵션 문제 요점.
+
+온프레미스 NAS를 AWS로 마이그레이션하려고 함.
+VPC 내부의 모든 Linux 인스턴스에서 데이터에 액세스할 수 있도록 하고 데이터 저장소에 대한 변경 사항이 이를 사용하는 모든 인스턴스에서 즉시 동기화되도록 보장.
+대량의 데이터는 드물게 보는 반면 특정 파일은 많은 사람들이 동시에 읽음.
+
 Concurrency = EFS
 
+A 정답 -> EBS는 멀티-attach가 있지만 동시성에 한계가 있어 부적합.
 
-1차 시도 : D 맞음<br>
-2차 시도 : D 맞음<br>
+B 탈락 -> S3는 가격은 싸지만 그만큼 동시성이나 성능에서 부적합.
+
+C 탈락 -> EFS로 동시성을 확보하고 프로비저닝 IOPS 양으로 설정하여 항상 최대치라서 가격적으로 부적합.
+
+D 정답 -> EFS로 동시성을 확보하고 IA 클래스로 전환하여 다소 사용 빈도가 낮은 것과 많이 사용하는 것으로 나눠 적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 185 ❌❌
+## Prob. 185
 
 수년 동안 비즈니스는 Amazon RDS 인스턴스에 분석 데이터를 저장해 왔습니다. 이 회사는 소비자가 이 데이터에 액세스할 수 있도록 하는 API를 개발하기 위해 솔루션 설계자를 고용했습니다. 이 프로그램은 유휴 기간이 있을 것으로 예상되지만 몇 초 안에 트래픽이 급증할 수 있습니다.
 
 건축가는 어떤 옵션을 추천해야 합니까?
 
-A. Set up an Amazon API Gateway and use Amazon ECS.
+A. Amazon API 게이트웨이를 설정하고 Amazon ECS를 사용합니다.
 
-B. Set up an Amazon API Gateway and use AWS Elastic Beanstalk.
+B. Amazon API Gateway를 설정하고 AWS Elastic Beanstalk를 사용합니다.
 
-C. Set up an Amazon API Gateway and use AWS Lambda functions.
+C. Amazon API Gateway를 설정하고 AWS Lambda 함수를 사용합니다.
 
-D. Set up an Amazon API Gateway and use Amazon EC2 with Auto Scaling.
+D. Amazon API 게이트웨이를 설정하고 자동 스케일링과 함께 Amazon EC2를 사용합니다.
 
 <br>
 <hr/>
@@ -209,25 +271,36 @@ Answer : C
 
 해설 : 
 
+유휴 기간이 있을 것으로 예상되지만 몇 초 안에 트래픽이 급증 문제 요점.
+
+Amazon RDS 인스턴스에 분석 데이터를 저장.
+소비자가 이 데이터에 액세스할 수 있도록 하는 API를 개발.
+
 여기서 핵심은 "애플리케이션에서 비활동 기간이 발생할 것으로 예상됩니다."입니다.<br>
-Lambda는 사용량에 따라 과금되며 스케일아웃이 가능합니다.<br>
-A. 모든 리소스 ECS 제공에 대한 비용을 지불합니다.<br>
-B. 당신은 EBS 제공에 대한 모든 자원을 지불할 것입니다.<br>
-C. 정답입니다<br>
-D. 비활성 기간 동안 Ec2 인스턴스에 대한 비용을 지불해야 합니다.
+Lambda는 사용량에 따라 과금되며 스케일아웃이 가능합니다.
+최대 15분 작업을 처리. <br>
 
 람다는 수평으로 확장되므로 요청이 버스트될 경우 처리할 수 있습니다. 게다가 비용 효과도 높습니다.
 
-1차 시도 : A 틀림<br>
-2차 시도 : A 틀림<br>
+**Elastic Beanstalk**
+애플리케이션을 실행하는 인프라에 대해 자세히 알지 못해도 AWS 클라우드에서 애플리케이션을 신속하게 배포하고 관리할 수 있습니다. Elastic Beanstalk를 사용하면 선택 또는 제어에 대한 제한 없이 관리 복잡성을 줄일 수 있습니다. 애플리케이션을 업로드하기만 하면 Elastic Beanstalk에서 용량 프로비저닝, 로드 밸런싱, 조정, 애플리케이션 상태 모니터링에 대한 세부 정보를 자동으로 처리.
+Go, Java, .NET, Node.js, PHP, Python 및 Ruby에서 개발된 애플리케이션을 지원.
+Amazon EC2 등의 AWS 리소스를 하나 이상 프로비저닝하여 애플리케이션을 실행.
+
+A 탈락 -> 모든 리소스 ECS 제공에 대한 비용을 지불해서 부적합.
+
+B 탈락 -> Amazon EC2 등의 AWS 리소스로 EBS 제공에 대한 모든 자원을 지불할 것이라 부적합.
+
+C 정답 -> 람다 함수는 리소스보다는 사용 횟수로 측정하여 적합.
+
+D 탈락 -> 비활성 기간 동안 자동 스케일링 EC2 인스턴스에 대한 비용을 지불해야 해서 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 186 ⭕⭕
+## Prob. 186
 
 모바일 게임 스타트업은 Amazon EC2 인스턴스를 사용하여 애플리케이션 서버를 호스팅합니다. 15분마다 서버는 플레이어로부터 업데이트를 받습니다. 모바일 게임은 마지막 업데이트 이후 게임의 진행 상황을 포함하는 JSON 객체를 생성하고 이를 Application Load Balancer에 전달합니다. 모바일 게임을 플레이하면 게임 업데이트가 손실됩니다. 이 회사는 오래된 장치가 업데이트를 받을 수 있는 오래 지속되는 방법을 개발할 계획입니다.
 
@@ -253,18 +326,44 @@ Answer : C
 
 해설 : 
 
-데이터가 손실되지 않도록 한다는 점과 디커플링이라는 키워드를 봤을 때 답은 C. SQS이다.
+시스템 디커플링 문제 요점.
 
-1차 시도 : C 맞음<br>
-2차 시도 : C 맞음<br>
+Amazon EC2 인스턴스를 사용하여 애플리케이션 서버를 호스팅.
+15분마다 서버는 플레이어로부터 업데이트.
+진행 상황을 포함하는 JSON 객체를 생성하고 ALB에 전달.
+모바일 게임을 플레이하면 게임 업데이트가 손실.
+
+**Amazon Kinesis Data Streams**
+모든 규모에서 쉽게 데이터 스트리밍.
+모든 규모의 데이터 스트림을 쉽게 캡처, 처리 및 저장할 수 있는 서버리스 스트리밍 데이터 서비스 = 데이터 수집/읽어옴(Agent/SDK).
+AWS서비스/마이크로서비스/로그/모바일 센서 -> KDS -> 람다/Kinesis Data Analytics/Kinesis Data Firehose/컨테이너.
+
+스트림 로그 및 이벤트 데이터/실시간 분석 실행/이벤트 기반 애플리케이션 구동.
+
+스트리밍 데이터는 수천 개의 데이터 원본에서 연속적으로 생성되는 데이터로서, 보통 데이터 레코드를 작은 크기(KB 단위)로 동시에 전송.
+가치 있는 통찰력을 얻기 위해/실시간 정보의 지속적인 흐름/데이터 처리와 저장 및 분석을 지원하는 데 사용.
+
+**Amazon Kinesis Data Firehose**
+안정적으로 실시간 스트림을 데이터 레이크, 웨어하우스, 분석 서비스에 로드.
+스트리밍 데이터를 안정적으로 캡처하고 전환하여 데이터 레이크, 데이터 스토어, 분석 서비스에 전달하는 추출, 전환, 적재(ETL) 서비스.
+S3/Redshift/OpenSearch 서비스/API 케이트웨이로 Output을 만듬.
+
+**SQS**
+데이터가 손실되지 않도록 한다는 점과 디커플링이라는 키워드를 봤을 때 SQS이며 FIFO는 작업에 대한 순서가 있을때 필요함.
+느슨한 결합으로 도중에 문제가 되어도 회복력이 있음.
+
+A, B 탈락 -> Kinesis는 스트리밍 데이터를 수집하고 실시간 처리하여 상황에 맞는 인사이트(Output)을 만드는 기술로 부적합.
+
+C 정답 -> SQS는 디커플링 아키텍쳐로 설계하여 도중에 문제가 생겨도 데이터(메시지)를 큐에 보관하기에 적합.
+
+D 탈락 -> SNS는 구독한 리소스들에게 일제히 단반향 단일성으로 알림만 보내는 것으로 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 187 ⭕⭕
+## Prob. 187
 
 회사의 IT 지출에 대한 최근 검토는 백업 비용 절감의 중요성을 보여줍니다. 조직의 CIO는 물리적 백업 테이프를 단계적으로 폐지하여 온프레미스 백업 아키텍처를 단순화하고 비용을 절감하기를 원합니다. 사내 백업 시스템 및 절차에 대한 회사의 현재 투자는 보호되어야 합니다.
 
@@ -290,18 +389,25 @@ Answer : D
 
 해설 :
 
-VTL을 사용하여 물리적 백업 테이프를 백업할 수 있다.
+백업 비용 절감의 중요성 문제 요점.
 
-1차 시도 : D 맞음<br>
-2차 시도 : D 맞음<br>
+물리적 백업 테이프를 단계적으로 폐지하여 온프레미스 백업 아키텍처를 단순화하고 비용을 절감.
+
+파일 게이트웨이 중에 SMB 인터페이스로 윈도우용 S3(FSx)으로 저장.
+볼륨 게이트웨이는 iSCSI 인터페이스로 Stored(모두)/Cached(자주)으로 EBS기반으로 증분식 백업으로 사용.
+
+A, B 탈락 -> Storage Gateway는 NFS 인터페이스로 파일 게이트웨이를 사용할 것이고 리눅스용으로 S3(EFS)에 저장하여 분석 및 처리용으로 부적합.
+
+C 탈락 -> iSCSI 인터페이스는 볼륨 게이트웨이가 사용하며 테이프 백업이 아니라 부적합.
+
+D 정답 -> VTL을 사용하여 물리적 백업 테이프를 백업할 수 있어 적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 188 ❓⭕
+## Prob. 188
 
 기업은 내부 웹 기반 응용 프로그램을 유지 관리합니다. 애플리케이션은 Application Load Balancer를 통해 라우팅되는 Amazon EC2 인스턴스에 배포됩니다. 인스턴스는 Amazon EC2 Auto Scaling 그룹을 통해 여러 가용 영역에 분산됩니다. 업무 시간 동안 Auto Scaling 그룹은 최대 20개의 인스턴스로 확장한 다음 하룻밤 사이에 2개의 인스턴스로 축소합니다. 직원들은 프로그램이 하루를 시작하기에는 매우 느리지만 오전 중반까지는 잘 수행된다고 말합니다.
 
@@ -323,21 +429,32 @@ D. 사무실이 문을 열기 직전에 최소 및 최대 용량을 20으로 설
 <summary>정답 및 해설 보기</summary>
 <div markdown="1">
 <br>
-Answer : Discussion 참조 / C
+Answer : C
 
 해설 : 
-타켓 트랙킹이 가장 좋은 방안일 것.
 
-1차 시도 : A 틀림<br>
-2차 시도 : C 맞음<br>
+비용을 낮게 유지하면서 직원의 우려를 수용 문제 요점.
+
+Application Load Balancer를 통해 라우팅.
+Amazon EC2 Auto Scaling 그룹을 통해 여러 가용 영역에 분산.
+업무 시간 동안 Auto Scaling 그룹은 최대 20개의 인스턴스로 확장한 다음 하룻밤 사이에 2개의 인스턴스로 축소.
+
+트랙킹은 한 오브젝트를 다른 오브젝트가 있는 방향으로 항상 바라보록 만드는 것을 말합니다. 바라보는 오브젝트는 추적자 Tracker라고 부르고 바라보는 대상 오브젝트를 타겟 Target이라고 부름.
+
+A 탈락 -> 예약 작업을 하면 오전의 냉각 기간은 비용적으로 부적합.
+
+B 탈락 -> 단계적 스케일링 동작은 A, B보다 비용적이나 결국 추적해서 그 마다 적용하는 것 보단 부적합.
+
+C 정답 -> 타켓 트랙킹이 가장 좋은 방안일 것으로 적합.
+
+D 탈락 -> 예약 작업을 하면 오전의 냉각 기간은 비용적으로 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 189 ⭕❌
+## Prob. 189
 
 기업은 모든 이메일을 7년 동안 외부에 저장 및 보존해야 하는 규제 의무를 준수해야 합니다. 관리자가 온프레미스에서 압축된 이메일 파일을 준비했으며 관리형 서비스를 통해 데이터를 AWS 스토리지로 전송하기를 원합니다.
 
@@ -363,21 +480,27 @@ Answer : D
 
 해설 : 
 
-question asks about the transfer service and NOT the storage service , AWS Storage gateway is the only one transfer service in options.
+데이터를 AWS 스토리지로 전송 문제 요점.
 
-AWS Backup은 온프레미스 서버를 백업할 수 없다.<br>
-Storage gateway를 사용해야 한다.
+모든 이메일을 7년 동안 외부에 저장 및 보존.
+온프레미스에서 압축된 이메일 파일을 준비했으며 관리형 서비스 필요.
 
-1차 시도 : D 맞음<br>
-2차 시도 : B 틀림<br>
+스토리지 서비스가 아닌 전송 서비스에 대한 질문입니다. AWS 스토리지 게이트웨이는 옵션의 유일한 전송 서비스입니다.
+
+A 탈락 -> 데이터가 전송되고 저장될 때 어떤 형식으로 저장할 것인지 에 대한 것으로 부적합.
+
+B 탈락 -> S3에 대한 클래스이지 전송에 대한 것이 아니라 부적합.
+
+C 탈락 -> AWS Backup은 온프레미스 서버를 백업할 수 없어 부적합.
+
+D 정답 -> Storage gateway는 데이터를 전송하는 서비스로 적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 190 ⭕⭕
+## Prob. 190
 
 기업은 Elastic Load Balancer를 통해 여러 가용 영역에 분산된 Amazon EC2 인스턴스에서 웹 사이트를 호스팅합니다. 인스턴스는 EC2 Auto Scaling 그룹의 일부로 관리됩니다. 웹 사이트는 Amazon Elastic Block Store(Amazon EBS) 볼륨을 통해 다운로드할 수 있는 제품 설명서를 저장합니다. 조직에서 종종 제품 정보를 변경하므로 Auto Scaling 그룹에서 생성한 새 인스턴스에는 오래된 데이터가 있는 경우가 많습니다. 새 인스턴스에서 모든 변경 사항을 수신하는 데 최대 30분이 소요될 수 있습니다. 또한 변경 사항에는 업무 시간 동안 EBS 볼륨 크기 조정이 포함됩니다.
 회사는 제품 설명서가 지속적으로 최신 상태이고 아키텍처가 증가하는 고객 요구에 빠르게 적응할 수 있도록 보장하기를 원합니다.
@@ -385,14 +508,13 @@ Storage gateway를 사용해야 한다.
 
 솔루션 설계자는 이 목표를 달성하기 위해 어떤 조치를 취해야 합니까?
 
-A. Store the product manuals in an EBS volume. Mount that volume to the EC2 instances.
+A. 제품 설명서를 EBS 볼륨에 저장합니다. 해당 볼륨을 EC2 인스턴스에 마운트합니다.
 
-B. Store the product manuals in an Amazon S3 bucket. Redirect the downloads to this bucket.
+B. Amazon S3 버킷에 제품 설명서를 저장합니다. 다운로드를 이 버킷으로 재연결합니다.
 
-C. Store the product manuals in an Amazon Elastic File System (Amazon EFS) volume. Mount that volume to the EC2 instances.
+C. Amazon Elastic File System(Amazon EFS) 볼륨에 제품 설명서를 저장합니다. 해당 볼륨을 EC2 인스턴스에 마운트합니다.
 
-D. Store the product manuals in an Amazon S3 Standard-Infrequent Access (S3 Standard-IA) bucket. Redirect the downloads to this bucket.
-
+D. Amazon S3 Standard-Infrequent Access(S3 Standard-IA) 버킷에 제품 설명서를 저장합니다. 다운로드를 이 버킷으로 재연결합니다.
 
 <br>
 <hr/>
@@ -406,17 +528,28 @@ Answer : C
 
 해설 : 
 
+제품 설명서가 지속적으로 최신 상태이고 아키텍처가 증가하는 고객 요구에 빠르게 적응할 수 있도록 보장 문제 요점.
+
+Elastic Load Balancer를 통해 여러 가용 영역에 분산된 Amazon EC2 인스턴스에서 웹 사이트를 호스팅.
+인스턴스는 EC2 Auto Scaling 그룹의 일부로 관리.
+웹 사이트는 Amazon Elastic Block Store(Amazon EBS) 볼륨을 통해 다운로드할 수 있는 제품 설명서를 저장.
+모든 변경 사항을 수신하는 데 최대 30분이 소요.
+변경 사항에는 업무 시간 동안 EBS 볼륨 크기 조정이 포함.
+
 constantly current - always EFS
 
-1차 시도 : C 맞음<br>
-2차 시도 : C 맞음<br>
+A 탈락 -> EBS 볼륨만으로는 동시성 한계가 있을 수도 있어서 부적합.
+
+B 탈락 -> S3은 동시성이 없으며 자동 크기 조정도 안돼서 부적합.
+
+C 정답 -> 설명서는 많은 고객이 동시에 이용하니 동시성과 EFS는 자동으로 크기를 조정해줘서 적합.
+
+D 탈락 -> 앞서 말했듯이 동시성이 없어 부적합.
+
 </div>
 </details>
 
-<br>
 <hr/>
-<hr/>
-<br>
 
 * Ref
   - [ExamTopics](https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c02/view/19)

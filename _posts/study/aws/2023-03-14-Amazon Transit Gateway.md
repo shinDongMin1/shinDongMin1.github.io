@@ -18,7 +18,7 @@ AWS의 **Transit Gateway**를 이해해보자.
 {:toc}
 
 <hr/>
-ㄴㄴ
+
 ## Amazon Transit Gateway 개요
 
 AWS에서 소개하는 `Amazon Transit Gateway 설명`을 보면

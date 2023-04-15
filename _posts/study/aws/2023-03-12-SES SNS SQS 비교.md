@@ -135,7 +135,7 @@ SQS는 이런 경우를 방지하기 위한 `하나의 서비스에서 다른 �
 
 ## SNS와 SQS 비교
 
-![sns_sqs](/assets/img/study_AWS/2022-06-15-[AWS]_SES_SNS_SQS_비교/sns_sqs.png)
+![sns_sqs](/assets/img/study_AWS/[AWS]_SES_SNS_SQS_비교/sns_sqs.png)
 
 **SQS**는 `비동기식 데이터 캡쳐에 사용`되고 <br>
 **SNS**는 `한 번 메시지를 푸쉬`하고 나면 `회복력이 없습니다.`

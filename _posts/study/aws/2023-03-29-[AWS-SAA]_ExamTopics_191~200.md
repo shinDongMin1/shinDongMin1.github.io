@@ -16,11 +16,9 @@ SAA Examtopics 191~200번 문제를 풀어보자.<br>
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 191 ⭕⭕
+## Prob. 191
 
 Amazon EC2에서 비즈니스는 전자 상거래 애플리케이션을 호스팅합니다. 애플리케이션은 실행을 위해 최소 10개의 인스턴스와 최대 250개의 인스턴스가 필요한 상태 비저장 웹 계층으로 구성됩니다. 80%의 경우 프로그램에는 50개의 인스턴스가 필요합니다.
 
@@ -46,18 +44,25 @@ Answer : D
 
 해설 : 
 
-D. Reserved instances for the 50 that are up most of the time, Spot fleet (mix of on-demand and spot) for the others
+비용을 줄이려면 어떤 솔루션 문제 요점.
 
-1차 시도 : D 맞음<br>
-2차 시도 : D 맞음<br>
+최소 10개의 인스턴스와 최대 250개의 인스턴스가 필요한 상태.
+80%의 경우 프로그램에는 50개의 인스턴스가 필요.
+
+A 탈락 -> 250개를 예약하면 비용적으로 부적합.
+
+B 탈락 -> 80개 예약하고 나머지를 스팟을 사용하는데 처음에 많은 개수를 잡아서 부적합.
+
+C 탈락 -> 예약 인스턴스가 싼데 온디맨드로 사용하여 부적합.
+
+D 정답 -> 대부분의 시간 동안 50개의 인스턴스를 예약하고, 나머지는 스팟 fleet(온디맨드 및 스팟 혼합)를 예약하여 적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 192 ❓❌
+## Prob. 192
 
 비즈니스에서 Amazon Aurora 기반 Amazon RDS 데이터베이스 인스턴스를 설치하려고 합니다. 조직에는 90일 백업 보존 정책이 있습니다.
 
@@ -83,19 +88,27 @@ Answer : C
 
 해설 : 
 
-For me answer is C. how can one store RDS automated snapshots to a user-managed S3 bucket as far as I know RDS store manual and automated snapshots in its own managed S3 bucket which cannot be seen so how we can set a lifecycle policy on that. On the other hand we can control how frequently to take backup and how long to retain that backup in the backup plan.
+90일 백업 보존 정책 문제 요점.
 
+Amazon RDS 데이터베이스 인스턴스를 설치.
 
-1차 시도 : B 모름<br>
-2차 시도 : B 틀림<br>
+RDS가 수동 및 자동 스냅샷을 자체 관리 S3 버킷에 저장하는 것으로 알고 있기 때문에 라이프사이클 정책을 어떻게 설정할 수 있는지에 대해 알 수 없습니다. 다른 한편으로는 백업을 수행하는 빈도와 백업 계획에 백업을 유지하는 기간을 제어할 수 있습니다.
+Lambda는 15분 정도 간단한 작업, 사용횟수마다 측정.
+
+A 탈락 -> 보존 기간만 설정하여 부적합.
+
+B 탈락 -> 수동 및 자동 스냅샷으로 자체 관리하기에 라이프 사이클로 설정하지 못하여 부적합.
+
+C 정답 -> 보존 기간과 백업에 대한 계획이 있어 적합.
+
+D 탈락 -> 백업본을 복제하는 이유가 없어 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 193 ⭕⭕
+## Prob. 193
 
 솔루션 설계자는 공용 및 사설 서브넷으로 가상 사설 클라우드(VPC)를 구성하고 있습니다. VPC 및 서브넷은 IPv4 CIDR 블록을 사용하여 구성됩니다. 3개의 가용 영역(AZ) 각각에는 하나의 퍼블릭 서브넷과 하나의 프라이빗 서브넷이 있습니다. 인터넷 게이트웨이는 퍼블릭 서브넷을 인터넷에 연결하는 데 사용됩니다. Amazon EC2 인스턴스가 소프트웨어 업그레이드를 받으려면 프라이빗 서브넷이 인터넷에 연결되어 있어야 합니다.
 
@@ -121,21 +134,34 @@ Answer : A
 
 해설 : 
 
-Two things to remember regarding NAT Gateway :<br>
-#1) It is always placed in Public Subnet<br>
-#2 in the event of AZ failure the NAT gateway becomes unavailable and the resources within other Availability Zones loose internet access. To create a fault-tolerant architecture, make sure that your AWS NAT gateways are deployed in at least two Availability Zones (AZs) OR More...
+업그레이드를 받으려면 프라이빗 서브넷이 인터넷에 연결 문제 요점.
 
+공용 및 사설 서브넷으로 가상 사설 클라우드(VPC)를 구성.
+IPv4 CIDR 블록을 사용하여 구성.
+3개의 가용 영역(AZ) 각각에는 하나의 퍼블릭 서브넷과 하나의 프라이빗 서브넷.
+인터넷 게이트웨이는 퍼블릭 서브넷을 인터넷에 연결.
 
-1차 시도 : A 맞음<br>
-2차 시도 : A 맞음<br>
+VPC는 전통적인 네트워크와 같이 하나 이상의 연속적 IP 주소인 CIDR(Classless Inter Domain Routing) 블록으로 표시합니다. CIDR 블록은 VPC 내의 인스턴스 및 리소스에 할당되는 IP 주소를 결정.
+
+NAT 게이트웨이와 관련하여 기억해야 할 두 가지 사항<br>
+#1) 항상 공용 서브넷에 배치됩니다. <br>
+#2) AZ 장애가 발생하면 NAT 게이트웨이를 사용할 수 없게 되고 다른 가용성 영역 내의 리소스가 인터넷에 액세스할 수 없게 됩니다. 내결함성 아키텍처를 만들려면 AWS NAT 게이트웨이가 2개 이상의 가용성 영역(AZ)에 구축되어 있는지 확인하십시오...
+
+VPC -> AZ -> 서브넷 -> 인스턴스
+NAT는 네트워크 주소 변환기로 프라이빗 서브넷이 외부에 접근.
+
+A 정답 -> 3개 AZ영역 모두 퍼블릭 서브넷에 NAT를 사용하여 적합.
+
+B 탈락 -> 프라이빗 서브넷에 배치되어 부적합.
+
+C, D 탈락 -> 결국 AZ 장애시 문제가 발생하여 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 194 ❌❌
+## Prob. 194
 
 현재 한 기업에서 공급업체별 형식을 사용하여 Amazon S3에 250TB의 백업 데이터를 저장했습니다. 이 회사는 Amazon S3에서 파일을 추출하여 업계 표준 형식으로 변환한 다음 Amazon S3에 다시 업로드하려고 합니다. 회사는 이 세션의 데이터 전송과 관련된 비용을 줄이기를 원합니다.
 
@@ -161,21 +187,28 @@ Answer : D
 
 해설 : 
 
-Data is already in S3. Snowball is to transfer data from data center to AWS. Hence B & C are wrong<br>
-Lambda doesn't let you install custom software. So batch processing on S3 is not possible.<br>
-As question asked to minimize the data transfer cost. D makes sense as you install EC2 in same region as S3
+세션의 데이터 전송과 관련된 비용을 줄임 문제 요점.
 
+공급업체별 형식으로 Amazon S3에 250TB의 백업 데이터를 저장.
+파일을 추출하여 업계 표준 형식으로 변환한 다음 Amazon S3에 다시 업로드.
 
-1차 시도 : A 틀림<br>
-2차 시도 : A 틀림<br>
+배치 작업인 람다는 사용자 지정 소프트웨어를 설치할 수 없습니다. 그래서 S3에서 일괄 처리가 불가능합니다.<br>
+데이터 전송 비용을 최소화하기 위한 질문입니다. S3와 동일한 지역에 EC2를 설치하는 것이 D입니다
+
+A 탈락 -> 배치 작업에 지정 SW설치 불가하여 부적합.
+
+B 탈락 -> 데이터가 이미 S3에 있습니다. 다시 데이터센터에서 AWS로 데이터를 전송하는 것으로 부적합.
+
+C 탈락 -> 데이터가 이미 S3에 있습니다. 스노우볼은 데이터센터에서 AWS로 데이터를 전송하는 것으로 부적합.
+
+D 정답 -> 동일한 영역에 처리를 위해 EC2로 변환하고 다시 저장하여 적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 195 ❌⭕
+## Prob. 195
 
 비즈니스 애플리케이션은 온프레미스 서버에서 호스팅됩니다. 회사는 스토리지 용량을 빠르게 고갈시키고 있습니다. 프로그램은 블록 및 네트워크 파일 저장소를 모두 사용합니다. 기업은 현재 애플리케이션을 다시 설계할 필요 없이 로컬 캐싱을 가능하게 하는 고성능 솔루션이 필요합니다.
 
@@ -203,30 +236,26 @@ Answer : B, D
 
 해설 : 
 
-for block storage - volume gateway, for NFS - file gateway
+현재 애플리케이션을 다시 설계할 필요 없이 로컬 캐싱을 가능 문제 요점.
 
-Requirements: High Performance with local caching without re-architecting solution
+블록 스토리지용 - 볼륨 게이트웨이, NFS용 - 파일 게이트웨이
 
-Distractors: A/B/C
+A 탈락 -> s3는 블록 스토리지이고 FS으로 마운트할 수 없기 때문에 부적합.
 
-A is completely wrong as s3 is a block storage and cannot be mounted as FS
-B is probably one of the reasonable solution but it is not better when we have EFS in the options for NFS mount command has an option of fsc – which enables local file caching, without changing NFS cache coherency, and reducing latencies so a distractor
+B 정답 -> NFS 마운트 옵션에 EFS가 있는 경우에는 NFS 캐시 일관성을 변경하지 않고 로컬 파일 캐싱을 지원하고 지연 시간을 줄여 주의를 분산시키는 옵션인 FSC 옵션이 있어 적합.
 
-C is a migration service S3 service
+C 탈락 -> 마이그레이션 서비스(스노우볼, DataSync) S3 서비스로 부적합.
 
-D/E
-D is the best solution for caching block storage data on prem and also backing up to AWS similarly as mentioned in point B it is the convenient solution for NFS local caching and storage
+D 정답 -> 사전에 블록 스토리지 데이터를 캐싱하는 데 가장 적합한 솔루션이며 B 지점에서 언급한 것과 유사하게 AWS에 백업하여 적합.
 
-1차 시도 : A, B 틀림<br>
-2차 시도 : B, D 맞음<br>
+E 탈락 -> NFS 로컬 캐싱 및 스토리지를 위한 편리한 솔루션이지만 사내 서버에 마운트하여 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 196 ❓❓
+## Prob. 196
 
 비즈니스는 Application Load Balancer를 통해 라우팅되는 Amazon EC2 인스턴스에서 웹 서비스를 호스팅합니다. 인스턴스는 Amazon EC2 Auto Scaling 그룹을 통해 2개의 가용 영역에 분산됩니다. 기업은 비용을 낮게 유지하면서 필요한 SLA(서비스 수준 계약) 요구 사항을 달성하기 위해 항상 최소 4개의 인스턴스가 필요합니다.
 
@@ -248,22 +277,34 @@ D. 두 개의 가용 영역에서 8개의 서버를 사용하도록 자동 확�
 <summary>정답 및 해설 보기</summary>
 <div markdown="1">
 <br>
-Answer : Discussion 참조
+Answer : D
 
 해설 : 
 
-1차 시도 : A 모름<br>
-2차 시도 : ? 모름<br>
+가용 영역에 장애가 발생하는 경우 조직은 어떻게 SLA 준수를 유지 문제 요점.
+
+ALB를 통해 라우팅되는 Amazon EC2 인스턴스에서 웹 서비스를 호스팅.
+Auto Scaling 그룹을 통해 2개의 가용 영역에 분산.
+항상 최소 4개의 인스턴스가 필요.
+
+서비스 수준 계약(SLA)은 서비스 제공자와 고객 간의 계약으로, 제공하는 서비스의 유형과 표준을 정의.
+
+A 탈락 -> 냉각 시간을 짧게 만들게 대상을 추적해서 바로바로 스케일링을 하지만 최소 조건에서 탈락.
+
+B 탈락 -> 더 큰 인스턴스 유형은 처리에 관련 부적합.
+
+C 탈락 -> 최소 3개의 인스턴스라서 부적합.
+
+D 정답 -> 답으로는 애매하나 두개의 가용 영역에서 최소 4개씩은 운영하여 장애에 대응하는 것 같아 적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 197 ❓⭕
+## Prob. 197
 
-한 회사에서 AWS 클라우드를 사용하여 3계층 전자상거래 애플리케이션을 실행하고 있습니다. 이 회사는 Amazon S3에서 웹사이트를 호스팅하고 이를 판매 API와 결합합니다. API는 ALB(Application Load Balancer)를 통해 연결된 3개의 Amazon EC2 인스턴스에서 회사에서 호스팅합니다. API는 정적 및 동적 프런트 엔드 콘텐츠와 판매 요청을 비동기적으로 실행하는 백엔드 작업자로 구성됩니다.
+한 회사에서 AWS 클라우드를 사용하여 3계층 전자상거래 애플리케이션을 실행하고 있습니다. 이 회사는 Amazon S3에서 웹사이트를 호스팅하고 이를 판매 API와 결합합니다. API는 ALB(Application Load Balancer)를 통해 연결된 3개의 Amazon EC2 인스턴스로 회사에서 호스팅합니다. API는 정적 및 동적 프런트 엔드 콘텐츠와 판매 요청을 비동기적으로 실행하는 백엔드 작업자로 구성됩니다.
 회사는 신제품 출시를 축하하는 이벤트 기간 동안 판매 요청이 갑자기 급증할 것으로 예상합니다.
 
 솔루션 설계자는 모든 요청의 효과적인 처리를 보장하기 위해 무엇을 처방해야 합니까?
@@ -275,7 +316,6 @@ B. 정적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. EC2 �
 C. 동적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. ALB 앞에 Amazon ElastiCache 인스턴스를 추가하여 API가 처리할 트래픽을 줄입니다.
 
 D. 정적 콘텐츠에 대한 Amazon CloudFront 배포를 추가합니다. EC2 인스턴스가 나중에 처리할 수 있도록 웹 사이트에서 요청을 수신하려면 Amazon SQS(Simple Queue Service) 대기열을 추가합니다.
-
 
 <br>
 <hr/>
@@ -289,11 +329,23 @@ Answer : D
 
 해설 : 
 
-D - CORRECT; although B could work, it does say "abrupt change in sales" so more unpredictable and scaling the EC2 instances in ASG does not help as not only takes time but might also lose the unprocessed data. B would work if they prepare in advance with more instances "pre-warmed" before the sale day but still D is going to solve the unpredictability better.
+이벤트 기간 동안 판매 요청이 갑자기 급증 문제 요점.
 
+회사는 Amazon S3에서 웹사이트를 호스팅.
+이를 판매 API와 결합.
+API는 ALB를 통해 연결된 3개의 Amazon EC2 인스턴스로 회사에서 호스팅.
+정적 및 동적 프런트 엔드 콘텐츠와 판매 요청을 비동기적으로 실행하는 백엔드 작업자로 구성.
 
-1차 시도 : B 틀림<br>
-2차 시도 : D 맞음<br>
+D - 정답입니다. B가 작동할 수는 있지만, "매출의 급격한 변화"라고 말하기 때문에 예측할 수 없고 ASG에서 EC2 인스턴스를 확장하는 것은 시간이 걸릴 뿐만 아니라 처리되지 않은 데이터도 손실될 수 있습니다. 만약 그들이 판매일 전에 "사전 준비"된 사례를 더 많이 가지고 미리 준비한다면 B는 효과가 있을 것이지만 그래도 D는 예측 불가능성을 더 잘 해결할 것이다.
+
+A 탈락 -> 동적 컨텐츠에는 전세계에서 캐싱 관련이 아닌 이상 CloudFront가 필요 없으며 인스턴스 또한 직접 수정하는 것 같아 부적합.
+
+B 탈락 -> 정적 컨텐츠는 CloudFront와 함께 사용하면 정적 웹 호스팅의 도메인으로 사용 가능하고 자동 확장으로 트래픽에 대한 동작 가능하지만 안전하지 않아 부적합.
+
+C 탈락 -> 동적 컨텐츠에는 전세계에서 캐싱 관련이 아닌 이상 CloudFront가 필요 없으며 ElastiCache는 인메모리라서 부적합.
+
+D 정답 -> 정적 컨텐츠는 CloudFront와 함께 사용하면 정적 웹 호스팅의 도메인으로 사용 가능하고 SQS로 대기열을 만들어 문제가 생겨도 복구하여 적합.
+
 </div>
 </details>
 
@@ -301,17 +353,17 @@ D - CORRECT; although B could work, it does say "abrupt change in sales" so more
 <hr/>
 <hr/>
 
-## Prob. 198 ⭕⭕
+## Prob. 198
 
 Amazon EC2 인스턴스는 애플리케이션을 실행하는 데 사용됩니다. 애플리케이션의 민감한 데이터는 Amazon S3 버킷에 보관됩니다. 버킷은 인터넷 액세스로부터 보호되는 동시에 VPC 내부 서비스에 대한 액세스를 허용해야 합니다.
 
 이를 위해 아카이브 솔루션은 어떤 활동을 수행해야 합니까? (2개를 선택하세요.)
 
-A. Amazon S3에 대한 VPC 끝점을 생성합니다.
+A. Amazon S3에 대한 VPC 엔드포인트을 생성합니다.
 
 B. 버킷에서 서버 액세스 로깅을 사용합니다.
 
-C. 버킷 정책을 적용하여 S3 끝점에 대한 액세스를 제한합니다.
+C. 버킷 정책을 적용하여 S3 엔드포인트에 대한 액세스를 제한합니다.
 
 D. 중요한 정보가 있는 버킷에 S3 ACL을 추가합니다.
 
@@ -329,24 +381,33 @@ Answer : A, C
 
 해설 : 
 
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html:<br>
-"You can use Amazon S3 bucket policies to control access to buckets from specific virtual private cloud (VPC) endpoints, or specific VPCs"
+인터넷 액세스로부터 보호되는 동시에 VPC 내부 서비스에 대한 액세스를 허용 문제 요점.
 
-https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html:<br>
-"A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. AWS PrivateLink is a technology that enables you to privately access services by using private IP addresses. Traffic between your VPC and the other service does not leave the Amazon network."
+Amazon EC2 인스턴스는 애플리케이션을 실행.
+민감한 데이터는 Amazon S3 버킷에 보관.
 
-A and C
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html :<br>
+"Amazon S3 버킷 정책을 사용하여 특정 VPC(Virtual Private Cloud) 엔드포인트 또는 특정 VPC의 버킷에 대한 액세스를 제어할 수 있습니다."
 
-1차 시도 : A, C 맞음<br>
-2차 시도 : A, C 맞음<br>
+https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html :<br>
+"VPC 엔드포인트을 사용하면 VPC와 지원되는 AWS 서비스 및 AWS PrivateLink를 통해 제공되는 VPC 엔드포인트 서비스를 개인적으로 연결할 수 있습니다. AWS PrivateLink는 개인 IP 주소를 사용하여 개인적으로 서비스에 액세스할 수 있는 기술입니다. VPC와 다른 서비스 간의 트래픽은 Amazon 네트워크에서 전송되지 않습니다."
+
+A 정답 -> 서브넷에서 엔드포인트로 AWS리소스에 연결 가능하여 적합.
+
+B 탈락 -> 서버 액세스에 대한 로그를 사용하여 부적합.
+
+C 정답 -> 연결된 서브넷에 다른 서비스나 PrivateLink로 우회할 수 있어서 제한하여 적합.
+
+D 탈락 -> 네트워크와 관련된 문제인데 접근 제어 목록(access control list, ACL) 또는 액세스 제어 목록은 개체나 개체 속성에 적용되어 있는 허가 목록을 만들어도 인터넷 네트워크를 못막아 부적합.
+
+E 탈락 -> IAM 정책은 사용자에 대한 접근 제한을 해야하여 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 199 ⭕⭕
+## Prob. 199
 
 기업의 프로그램은 각각 크기가 약 5MB인 방대한 수의 파일을 생성합니다. Amazon S3는 파일을 저장하는 데 사용됩니다. 회사 정책에 따라 파일은 삭제되기 전에 4년 동안 보관되어야 합니다. 파일에는 복제하기 어려운 중요한 비즈니스 데이터가 포함되어 있기 때문에 즉각적인 액세스는 항상 필수적입니다. 파일은 일반적으로 항목 설정 후 처음 30일 이내에 조회되지만 해당 기간 이후에는 거의 액세스되지 않습니다.
 
@@ -372,18 +433,30 @@ Answer : C
 
 해설 : 
 
-the files contain vital business data that is difficult to replicate.
+가장 저렴한 스토리지 문제 요점.
 
-1차 시도 : C 맞음<br>
-2차 시도 : C 맞음<br>
+각각 크기가 약 5MB인 방대한 수의 파일을 생성.
+S3는 파일을 저장하는 데 사용.
+파일은 삭제되기 전에 4년 동안 보관.
+즉각적인 액세스는 항상 필수적.
+30일 이내에 조회되지만 해당 기간 이후에는 거의 액세스되지 않음.
+
+파일에는 복제하기 어려운 중요한 비즈니스 데이터가 포함되어 있습니다.
+
+A 탈락 -> 30일 이후의 파일이 거의 액세스되지 않는거지 검사용으로 사용하는 글래시어는 부적합.
+
+B 탈락 -> 원 존은 저장 공간/리전이 한 곳으로 중요하지 않는 데이터를 저장할때 사용하여 부적합.
+
+C 정답 -> 중요한 데이터를 복제해 다른 곳에 저장하며 IA로 30일 이후 파일이 지금은 액세스되지 않지만 언젠가 가능성이 있어 적합.
+
+D 탈락 -> 4년 후 파일을 삭제하는게 아니라 보관하여 부적합.
+
 </div>
 </details>
 
-<br>
-<hr/>
 <hr/>
 
-## Prob. 200 ⭕❌
+## Prob. 200 
 
 비즈니스에 미션 크리티컬 데이터가 포함된 버킷이 Amazon S3에 있습니다. 회사는 의도하지 않은 삭제로부터 이 데이터를 보호하기를 원합니다. 데이터는 계속 사용할 수 있어야 하며 사용자는 의도적으로 데이터를 지울 수 있어야 합니다.
 
@@ -411,18 +484,28 @@ Answer : A, B
 
 해설 : 
 
-A. Enable versioning on the S3 bucket.<br>
-B. Enable MFA Delete on the S3 bucket.
+데이터는 계속 사용할 수 있어야 하며 사용자는 의도적으로 데이터를 지울 수 있음 문제 요점.
 
-1차 시도 : A, B 맞음<br>
-2차 시도 : A, C 틀림<br>
+데이터가 포함된 버킷이 Amazon S3.
+의도하지 않은 삭제로부터 이 데이터를 보호.
+
+A. S3 버킷에서 버전 관리를 활성화합니다.<br>
+B. S3 버킷에서 MFA 삭제를 활성화합니다.
+
+A 정답 -> 버저닝하여 원치 않는 삭제가 발생하면 이전 버전으로 복구하여 적합.
+
+B 정답 -> MFA 삭제를 활성화하여 2차 인증후 의도적으로 삭제할 수 있는 사용자를 허용하여 적합.
+
+C 탈락 -> 버킷 정책은 다른 AWS리소스에서 접근을 생성하는 것이라 부적합.
+
+D 탈락 -> 암호화는 데이터나 전송할때 사용하여 부적합.
+
+E 탈락 -> 수명 주기 정책으로는 보존 기간과 관련되어 부적합.
+
 </div>
 </details>
 
-<br>
 <hr/>
-<hr/>
-<br>
 
 * Ref
   - [ExamTopics](https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c02/view/20)

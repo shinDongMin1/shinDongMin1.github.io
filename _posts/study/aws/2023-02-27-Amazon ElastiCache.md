@@ -59,7 +59,7 @@ AWS에서의 **Amazon ElastiCache**에 대한 설명을 보면
 
 ElastiCache Redis/Memcached와 같은 `In-Memory Key/Value 저장소`를 활용하여 `세션 데이터를 관리하고 저장`할 수 있습니다.
 
-세션 데이터는 `어플리케이션 계층에서 관리`되기 때문에, `분산 캐시(distribued cache)가 사용`되어야 합니다.
+세션 데이터는 `애플리케이션 계층에서 관리`되기 때문에, `분산 캐시(distribued cache)가 사용`되어야 합니다.
 
 <hr/>
 
