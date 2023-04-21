@@ -44,18 +44,18 @@ Answer : B
 
 해설 : 
 
-A -> Amazon Athena는 표준 SQL을 사용하여 Amazon S3(Amazon Simple Storage Service)에 있는 데이터를 직접 간편하게 분석할 수 있는 대화형 쿼리 서비스임.
+A -> Amazon Athena는 표준 SQL을 사용하여 Amazon S3(Amazon Simple Storage Service)에 있는 `데이터를 직접 간편하게 분석`할 수 있는 대화형 쿼리 서비스임. <BR>
 관리할 필요 없이 Apache Spark를 사용함.
 
-B -> 비용 탐색기(AWS Cost Explorer)는 비용 및 사용량을 보고 분석할 수 있게 해주는 도구로 기본 리포트를 제공하지만 리포트를 생성하는 데 사용되는 필터 및 제약 조건을 변경할 수도 있음.
-비용 탐색기는 사용자가 만든 리포트를 저장하는 방법도 제공.
+B -> 비용 탐색기(AWS Cost Explorer)는 비용 및 사용량을 보고 분석할 수 있게 해주는 도구로 기본 리포트를 제공하지만 리포트를 생성하는 데 사용되는 `필터 및 제약 조건을 변경`할 수도 있음. <BR>
+비용 탐색기는 사용자가 만든 리포트를 저장하는 방법도 제공. <BR>
 책갈피로 저장하거나 CSV 파일을 다운로드하거나 보고서로 저장할 수 있음.
 
-C -> AWS Billing 콘솔의 대시보드 페이지를 사용하여 AWS 지출에 대한 일반적인 정보와 지출 추세를 확인.
-세부 정보를 보려면, 왼쪽 탐색 창에서 청구 세부 정보(Billing details)를 선택.
+C -> AWS Billing 콘솔의 대시보드 페이지를 사용하여 `AWS 지출에 대한 일반적인 정보와 지출 추세`를 확인. <BR>
+세부 정보를 보려면, 왼쪽 탐색 창에서 청구 세부 정보(Billing details)를 선택. <BR>
 Cost Explorer를 사용하지 않고도 AWS 비용을 볼 수 있음.
 
-D -> AWS Budgets를 사용하면 사용자 지정 예산을 설정하여 비용 및 사용량을 추적하고, 임계값 초과 시 이메일 또는 SNS 알림에서 수신된 알림에 빠르게 대응할 수 있음.
+D -> AWS Budgets를 사용하면 `사용자 지정 예산을 설정`하여 비용 및 사용량을 추적하고, 임계값 초과 시 이메일 또는 SNS 알림에서 수신된 알림에 빠르게 대응할 수 있음. <BR>
 하지만 문제에서는 AWS 청구 항목 요약 보고서가 필요해보임.
 
 </div>
@@ -89,12 +89,13 @@ Answer : A (and B) 중복 정답
 
 해설 : 
 
-A -> Amazon Elastic File System(EFS)은 완전히 탄력적인 서버리스(온디맨드/오토스케일링) 파일 스토리지를 제공하며 파일을 추가하고 제거할 때 자동으로 확장되고 축소되며 관리 또는 프로비저닝이 필요하지 않음.
+A -> Amazon Elastic File System(EFS)은 완전히 탄력적인 서버리스(온디맨드/오토스케일링) 파일 스토리지를 제공하며 파일을 추가하고 제거할 때 자동으로 확장되고 축소되며 관리 또는 프로비저닝이 필요하지 않음. <BR>
 EFS는 동시성을 지원하여 파일 데이터를 공유되기 때문에 답은 A.
 
 B -> 하지만 이 문제는 Amazon EBS Multi-Attach 가 업데이트되기 전에 나온 문제같다는 의견이 있음.
 
-다음은 Multi-Attach에 대한 설명으로
+다음은 Multi-Attach에 대한 설명으로 <BR>
+
     Amazon EBS Multi-Attach를 사용하면 동일한 가용성 영역에 있는 여러 인스턴스에 단일 Provisioned IOPS SSD(i1 또는 io2) 볼륨을 연결할 수 있습니다. 여러 다중 연결 사용 볼륨을 인스턴스 또는 인스턴스 집합에 연결할 수 있습니다. 볼륨이 연결된 각 인스턴스에는 공유 볼륨에 대한 전체 읽기 및 쓰기 권한이 있습니다. Multi-Attach를 사용하면 동시 쓰기 작업을 관리하는 클러스터된 리눅스 애플리케이션에서 애플리케이션 가용성을 높일 수 있습니다.
 
 C, D -> 둘다 파일에 동시에 액세스에 대한 내용이 아님.
@@ -132,29 +133,28 @@ Answer : B
 
 A -> 인바운드 트래픽(inbound traffic)은 외부에서 가상서버 내부로 데이터가 유입될때 발생하는 트래픽으로 직원 IP 주소로 제한만 한다고 승인되지 않는 개인에 대한 보안이 불가능.
 
-B -> Amazon FSx는 Microsoft Windows Server에 구축된 완전관리형 파일 스토리지를 통해 광범위한 엔터프라이즈 Windows 워크로드를 지원.
-Windows 파일 시스템 기능을 기본적으로 지원하며 네트워크를 통해 파일 스토리지에 액세스할 수 있는 서버 메시지 블록(SMB) 프로토콜도 지원.
+B -> Amazon FSx는 Microsoft Windows Server에 구축된 완전관리형 파일 스토리지를 통해 광범위한 엔터프라이즈 Windows 워크로드를 지원. <BR>
+Windows 파일 시스템 기능을 기본적으로 지원하며 네트워크를 통해 파일 스토리지에 액세스할 수 있는 서버 메시지 블록(SMB) 프로토콜도 지원. <BR>
 AWS 클라우드기본, Windows 호환성, 엔터프라이즈 성능 및 기능, 일관된 밀리초 미만의 지연 시간을 제공에 최적화.
 
     Windows 파일 서버가 온프레미스이므로 데이터를 클라우드에 복제할 수 있는 방법이 필요하므로 Windows 파일 서버용 AWS FSx만 선택할 수 있습니다. 또한, 정보는 기밀이므로 적절한 사용자가 안전한 방법으로 정보에 액세스할 수 있도록 하고 싶습니다.
 
-Windows file server + AD => FSx
-AD - LDAP(Lightweight Directory Access Protocol) 디렉터리 서비스의 기능이다. 주 목적은 윈도우 기반의 컴퓨터들을 위한 인증 서비스를 제공
-LDAP - 사용자가 조직, 구성원 등에 대한 데이터를 찾는 데 도움이 되는 프로토콜
+Windows file server + AD => FSx <BR>
+AD - LDAP(Lightweight Directory Access Protocol) 디렉터리 서비스의 기능이다. 주 목적은 윈도우 기반의 컴퓨터들을 위한 인증 서비스를 제공. <BR>
+LDAP - 사용자가 조직, 구성원 등에 대한 데이터를 찾는 데 도움이 되는 프로토콜.
 
-"Windows 파일 시스템"이 사용됩니다. Windows 파일 서버용 S3와 FSX 사이에서 FSX는 기존 on-prem 파일 시스템을 더 잘 대체합니다. --> A와 B로 제한
-보안 그룹(A)을 통한 IP 화이트리스트는 직원 공용 IPv4가 변경되거나 디바이스가 손상될 수 있으므로 위험하여
+"Windows 파일 시스템"이 사용됩니다. Windows 파일 서버용 S3와 FSX 사이에서 FSX는 기존 on-prem 파일 시스템을 더 잘 대체합니다. --> A와 B로 제한. <BR>
+보안 그룹(A)을 통한 IP 화이트리스트는 직원 공용 IPv4가 변경되거나 디바이스가 손상될 수 있으므로 위험하여 <BR>
 보안 인증 시스템(B)을 사용하는 것이 더 안전함.
 
-C, D -> VPC 엔드포인트를 통해 인터넷 게이트웨이, NAT 디바이스, VPN 연결 또는 AWS Direct Connect 연결이 필요 없이 Virtual Private Cloud(VPC)와 지원 서비스 간에 연결을 설정할 수 있음 따라서 VPC에서 연결할 수 있는 특정 API 엔드포인트, 사이트 및 서비스를 제어.
+C, D -> VPC 엔드포인트를 통해 인터넷 게이트웨이, NAT 디바이스, VPN 연결 또는 AWS Direct Connect 연결이 필요 없이 Virtual Private Cloud(VPC)와 지원 서비스 간에 연결을 설정할 수 있음 따라서 VPC에서 연결할 수 있는 특정 API 엔드포인트, 사이트 및 서비스를 제어. <BR>
 VPC 엔드포인트는 가상 디바이스입니다. 수평으로 확장된 고가용성 중복 VPC 구성 요소.(인터페이스/GLB/게이트웨이)
 
-S3 Signed URL - 기본적으로 모든 S3 객체는 프라이빗입니다. 객체 소유자만 액세스 권한.
-그러나 객체 소유자는 선택적으로 시간 제한 권한을 부여하기 위해 자체 보안 자격 증명을 사용하여 미리 서명된 URL 객체를 다운로드.
+S3 Signed URL - 기본적으로 모든 S3 객체는 프라이빗입니다. 객체 소유자만 액세스 권한. <BR>
+그러나 객체 소유자는 선택적으로 시간 제한 권한을 부여하기 위해 자체 보안 자격 증명을 사용하여 미리 서명된 URL 객체를 다운로드. <BR>
 서명된 URL을 생성할 때 보안을 제공해야 해서 자격 증명을 지정한 다음 버킷 이름, 객체 키, HTTP 메서드(GET 객체 다운로드), 만료 날짜 및 시간을 입력해야지만 미리 서명된 URL만 유효함.
 
 SSO - Single Sign-On(SSO)은 1회 사용자 인증으로 다수의 애플리케이션 및 웹사이트에 대한 사용자 로그인을 허용하는 인증 솔루션.
-
 
 </div>
 </details>
@@ -187,18 +187,18 @@ Answer : B
 
 해설 : 
 
-S3 Versioning - Amazon S3의 버전 관리는 객체의 여러 변형을 동일한 버킷에 보관하는 수단.
+S3 Versioning - Amazon S3의 버전 관리는 객체의 여러 변형을 동일한 버킷에 보관하는 수단. <BR>
 S3 버전 관리 기능을 사용하여 모든 버전을 보존, 검색 및 복원.
 
-S3 Object Lock - S3 객체 잠금을 사용하면 write-once-read-many(WORM) 모델을 사용하여 객체를 저장.
+S3 Object Lock - S3 객체 잠금을 사용하면 write-once-read-many(WORM) 모델을 사용하여 객체를 저장. <BR>
 객체 잠금은 고정된 시간 동안 또는 무기한으로 객체의 삭제 또는 덮어쓰기를 방지하는 데 도움.
 
-A, D -> 다수를 위한 읽기 전용 액세스는 버킷 정책으로 구현해야 함.
-버킷을 생성하는 동안 개체 잠금이 사용하도록 설정된 새 버킷을 생성해야 함.
+A, D -> 다수를 위한 읽기 전용 액세스는 버킷 정책으로 구현해야 함. <BR>
+버킷을 생성하는 동안 개체 잠금이 사용하도록 설정된 새 버킷을 생성해야 함. <BR>
 기존 버킷(옵션 D의 경우처럼)에 대해 개체 잠금을 사용할 수 없음.
 
-또한 Object lock이 활성화된 상태에서 새 버킷을 생성하려고 했는데 다음 메시지가 표시.
-"개체 잠금이 활성화되어 있으면 버킷 버전 관리를 비활성화할 수 없습니다."
+또한 Object lock이 활성화된 상태에서 새 버킷을 생성하려고 했는데 다음 메시지가 표시. <BR>
+"개체 잠금이 활성화되어 있으면 버킷 버전 관리를 비활성화할 수 없습니다." <BR>
 즉, 새 버킷을 생성해야 합니다(버전링이 자동으로 활성화됨).
 
 또한 IAM 권한이 아니라 버킷 정책일 수 있으므로 제외.
@@ -238,14 +238,17 @@ Answer : C
 
 해설 : 
 
-두 가지 키워드는 "대역폭"과 "재해 복구"입니다. 
-한 영역에 2개의 서로 다른 연결이 있으면 최대 탄력성(maximum resiliency)이 보장.
-서로 다른 영역에 연결하면 재해 복구가 포함.
+두 가지 키워드는 "대역폭"과 "재해 복구"입니다. <BR>
+한 영역에 2개의 서로 다른 연결이 있으면 최대 탄력성(maximum resiliency)이 보장. <BR>
+서로 다른 영역에 연결하면 재해 복구가 포함. <BR>
 동일한 영역에 새 연결이 있으면 연결 로드를 공유하므로 기존 연결에서 "트래픽 대역폭"이 감소.
 
 A -> 재해 복구 가능 / 트래픽 대역폭 감소 2
+
 B -> 재해 복구 가능 / 트래픽 대역폭 감소 1
+
 C -> 재해 복구 가능 / 트래픽 대역폭 감소 3
+
 D -> 재해 복구 가능 / 트래픽 대역폭 감소 1 / 최대 탄력성
 
 </div>
@@ -281,17 +284,17 @@ Answer : C
 
 단일 실패 지점을 최소화가 문제 요점.
 
-A 탈락 -> VPC 피어링에 대해 "통신에 대한 단일 장애 지점 또는 대역폭 병목 현상이 없습니다." 따라서 VPC 피어링이 이미 설치되어 있으면 이중화 메커니즘을 생성할 필요가 없음.
-https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html
+A 탈락 -> VPC 피어링에 대해 "통신에 대한 단일 장애 지점 또는 대역폭 병목 현상이 없습니다." 따라서 VPC 피어링이 이미 설치되어 있으면 이중화 메커니즘을 생성할 필요가 없음. <BR>
+[링크](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
 
-B 탈락 -> "VPC에 가상 프라이빗 게이트웨이를 한 번에 하나씩 연결할 수 있습니다."
-https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-limits.html
+B 탈락 -> "VPC에 가상 프라이빗 게이트웨이를 한 번에 하나씩 연결할 수 있습니다." <BR>
+[링크](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-limits.html)
 
-C 정답 -> "고객 게이트웨이 디바이스를 사용할 수 없게 될 경우 연결이 끊어지는 것을 방지하기 위해 두 번째 고객 게이트웨이 디바이스를 사용하여 VPC 및 가상 프라이빗 게이트웨이에 대한 두 번째 사이트 간 VPN 연결을 설정할 수 있습니다."
-https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html
+C 정답 -> "고객 게이트웨이 디바이스를 사용할 수 없게 될 경우 연결이 끊어지는 것을 방지하기 위해 두 번째 고객 게이트웨이 디바이스를 사용하여 VPC 및 가상 프라이빗 게이트웨이에 대한 두 번째 사이트 간 VPN 연결을 설정할 수 있습니다." <BR>
+[링크](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html)
 
-D 탈락 -> VPC 한 쌍당 VPC 피어링을 하나만 가질 수 있음. "VPC 피어링 연결은 두 VPC 간의 일대일 관계입니다."
-VPC https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html
+D 탈락 -> VPC 한 쌍당 VPC 피어링을 하나만 가질 수 있음. "VPC 피어링 연결은 두 VPC 간의 일대일 관계입니다." VPC <BR> 
+[링크](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html)
 
 </div>
 </details>
@@ -326,22 +329,22 @@ Answer : A, E
 
 해설 : 
 
-확장 가능한 서버리스 시스템으로 개발자가 서버를 관리할 필요 없이 애플리케이션을 빌드하고 실행할 수 있도록 하는 클라우드 네이티브 개발 모델입니다. 서버리스 모델에도 서버가 존재하긴 하지만, 애플리케이션 개발에서와 달리 추상화(온디맨드/오토스케일링)
+확장 가능한 서버리스 시스템으로 개발자가 서버를 관리할 필요 없이 애플리케이션을 빌드하고 실행할 수 있도록 하는 클라우드 네이티브 개발 모델입니다. 서버리스 모델에도 서버가 존재하긴 하지만, 애플리케이션 개발에서와 달리 추상화(온디맨드/오토스케일링) <BR>
 2개의 수집기(A, C)와 3개의 처리기(B, D, E)가 있습니다.
 
-A 정답 -> Amazon Kinesis Data Firehose는 스트리밍 데이터를 안정적으로 캡처하고 전환하여 데이터 레이크, 데이터 스토어, 분석 서비스에 전달하는 추출, 전환, 적재(ETL) 서비스로 `거의 실시간(near realtime)`이므로 적합
+A 정답 -> Amazon Kinesis Data Firehose는 스트리밍 데이터를 안정적으로 캡처하고 전환하여 데이터 레이크, 데이터 스토어, 분석 서비스에 전달하는 추출, 전환, 적재(ETL) 서비스로 `거의 실시간(near realtime)`이므로 적합.
 
-C 탈락 -> AWS DMS(데이터베이스 마이그레이션 서비스)는 데이터베이스 및 분석 워크로드를 AWS로 빠르고 안전하게 이동하여 가동 중단 시간 및 데이터 손실을 방지하는 데 도움이 되는 관리형 마이그레이션 및 복제 서비스로 복제만 하는 것이라서 부적합
+C 탈락 -> AWS DMS(데이터베이스 마이그레이션 서비스)는 데이터베이스 및 분석 워크로드를 AWS로 빠르고 안전하게 이동하여 가동 중단 시간 및 데이터 손실을 방지하는 데 도움이 되는 관리형 마이그레이션 및 복제 서비스로 복제만 하는 것이라서 부적합.
 
-B 탈락 -> AWS Step Functions는 개발자가 AWS 서비스를 사용하여 분산 애플리케이션을 구축하고, 프로세스를 자동화하며, 마이크로서비스를 오케스트레이션하고, 데이터 및 기계 학습(ML) 파이프라인을 생성할 수 있도록 지원하는 시각적 워크플로 서비스.
-람다는 최대 15분 동안 실행될 수 있고, 작업이 30분이기 때문에 람다는 쓸 수 없음.
-https://aws.amazon.com/lambda/faqs/#:~:text=AWS%20Lambda%20functions%20can%20be,1%20second%20and%2015%20minutes.
+B 탈락 -> AWS Step Functions는 개발자가 AWS 서비스를 사용하여 분산 애플리케이션을 구축하고, 프로세스를 자동화하며, 마이크로서비스를 오케스트레이션하고, 데이터 및 기계 학습(ML) 파이프라인을 생성할 수 있도록 지원하는 시각적 워크플로 서비스. <BR>
+람다는 최대 15분 동안 실행될 수 있고, 작업이 30분이기 때문에 람다는 쓸 수 없음. <BR>
+[링크](https://aws.amazon.com/lambda/faqs/#:~:text=AWS%20Lambda%20functions%20can%20be,1%20second%20and%2015%20minutes)
 
 D 탈락 -> 작동하지만 서버리스가 아님.
 
 E 정답 -> AWS Fargate는 컨테이너에 적합한 서버리스 컴퓨팅으로 서버를 관리하지 않고도 애플리케이션 구축에 초점을 맞출 수 있도록 지원하는 종량제 서버리스 컴퓨팅 엔진임.
-Amazon ECS/EKS와 호환.
-https://aws.amazon.com/fargate/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&fargate-blogs.sort-by=item.additionalFields.createdDate&fargate-blogs=derd=dateTime
+Amazon ECS/EKS와 호환. <BR>
+[링크](https://aws.amazon.com/fargate/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&fargate-blogs.sort-by=item.additionalFields.createdDate&fargate-blogs=derd=dateTime)
 
 </div>
 </details>
@@ -426,7 +429,7 @@ B 탈락 -> AWS Trusted Advisor는 AWS 모범 사례를 따르는 데 도움이 
 C 탈락 -> AWS Resource Access Manager는 지원되는 리소스 유형에 대해 AWS 계정 전체에서, 조직 또는 조직 단위(OU) 내에서 IAM 역할 및 사용자와 안전하게 리소스를 공유하는 서비스.
 위에 두 가지 사항과 같이 부적합.
 
-D 정답 -> 항상 사전 예방적이어야 하며 솔루션에 사후 대응적이지 않아야 합니다. 따라서 D는 정보가 공개적으로 액세스될 가능성을 방지하기 위해 공개 액세스를 차단하며 IAM 사용자에 SCP를 적용하여 설정을 변경 못하게 막음.
+D 정답 -> 항상 사전 예방적이어야 하며 솔루션에 사후 대응적이지 않아야 합니다. 따라서 D는 정보가 공개적으로 액세스될 가능성을 방지하기 위해 공개 액세스를 차단하며 IAM 사용자에 SCP(조직단위 OU)를 적용하여 설정을 변경 못하게 막음.
 
 </div>
 </details>
@@ -461,12 +464,15 @@ Answer : D
 
 내부 시스템의 쿼리 성능 문제 요점.
 
-Performance(성능) = Read Replicas
+Performance(성능) = Read Replicas <BR>
 Disaster Recovery(재해 복구) = Multi-AZ
 
 A 탈락 -> DB 엔진을 변경하는 것은 성능 향상에 도움이 되지 않아 부적합.
+
 B 탈락 -> ElastiCache는 동일한 쿼리에서 데이터를 캐싱하는 데만 도움되 부적합.
+
 C 탈락 -> Multi-AZ 데이터베이스가 2개의 AZ에 걸쳐 있고 고가용성이라 부적합.
+
 D 정답 -> Read Replica는 읽기 쿼리를 처리할 영역을 만들기에 적합.
 
 AWS Cloud > Region > VPC, 게이트웨이, ELB, 엔드포인트, 피어링, 커넥션 등 > AZ(Cluster) > 서브넷 > 디바이스
