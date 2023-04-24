@@ -46,48 +46,48 @@ Answer : D
 
 이전 30일 동안의 데이터만 필요하여 비용 효율적이고 시간 효율적인 솔루션 문제 요점.
 
-**AWS CloudFormation 템플릿**
+**AWS CloudFormation 템플릿** <BR>
 AWS에서의 프로비저닝 및 관리를 단순화합니다. 원하는 서비스 또는 애플리케이션 아키텍처에 대한 템플릿을 생성하고 AWS CloudFormation이 그러한 템플릿을 사용하여 해당 서비스 또는 애플리케이션에 대한 신속하고 안정적인 프로비저닝을 수행하도록 할 수 있습니다(이를 "스택"이라고 함). 필요한 만큼 스택을 쉽게 업데이트하거나 복제 가능.
 
 샘플 템플릿 모음은 AWS CloudFormation을 시작하고 자체 템플릿을 신속하게 구축하는 데 도움.
 
 스택(아키텍처에 대한 템플릿) 리소스를 프로비저닝 및 구성하려면 JSON 또는 YAML 형식 텍스트 파일인 AWS CloudFormation 템플릿을 이해하고 있어야 함.
 
-이 템플릿은 AWS CloudFormation 스택에서 프로비저닝할 리소스에 대해 설명합니다. AWS CloudFormation Designer 또는 텍스트 편집기를 사용하여 템플릿을 생성한 후 저장.
+이 템플릿은 AWS CloudFormation 스택에서 프로비저닝할 리소스에 대해 설명합니다. AWS CloudFormation Designer 또는 텍스트 편집기를 사용하여 템플릿을 생성한 후 저장. <BR>
 JSON 또는 YAML에 익숙하지 않은 경우 AWS CloudFormation Designer를 사용하면 AWS CloudFormation 템플릿을 시작하는 데 도움되게 템플릿을 시각적으로 생성하고 수정하기 위한 도구.
 
-템플릿 코드 조각에서는 특정 리소스에 대한 템플릿을 쓰는 방법을 보여주는 예제를 제공.
+템플릿 코드 조각에서는 특정 리소스에 대한 템플릿을 쓰는 방법을 보여주는 예제를 제공. <BR>
 예를 들어, Amazon EC2 인스턴스, Amazon S3 도메인, AWS CloudFormation 매핑 등에 대한 코드 조각.
 
-**AWS Marketplace**
-AWS Marketplace는 빌더부터 조달 책임자에 이르기까지 다양한 사용자의 요구 사항에 맞게 맞춤화된 기능을 제공.
-서드 파티 소프트웨어, 서비스 및 데이터의 조달, 프로비저닝 및 거버넌스를 간소화.
+**AWS Marketplace** <BR>
+AWS Marketplace는 빌더부터 조달 책임자에 이르기까지 다양한 사용자의 요구 사항에 맞게 맞춤화된 기능을 제공. <BR>
+서드 파티 소프트웨어, 서비스 및 데이터의 조달, 프로비저닝 및 거버넌스를 간소화. <BR>
 간소화된 조달 및 제어 기능을 통해 원하는 서드 파티 소프트웨어를 쉽게 검색, 테스트, 구매 및 배포할 수 있도록 큐레이팅된 디지털 카탈로그.
 
-클릭 몇 번이면 미리 구성된 소프트웨어를 빠르게 시작하고 Amazon Machine Image(AMI) 및 서비스형 소프트웨어(SaaS) 형식과 다른 형식의 소프트웨어 솔루션을 선택할 수 있습니다. 또한 데이터 제품을 찾아보고 구독.
+클릭 몇 번이면 미리 구성된 소프트웨어를 빠르게 시작하고 Amazon Machine Image(AMI) 및 서비스형 소프트웨어(SaaS) 형식과 다른 형식의 소프트웨어 솔루션을 선택할 수 있습니다. 또한 데이터 제품을 찾아보고 구독. <BR>
 무료 평가판, 시간당, 월별, 연간, 다년 및 기존 보유 라이선스 사용(BYOL) 모델과 같은 유연한 요금 옵션 중에서 선택.
 
-맞춤형 약관, 볼륨 요금 및 유연한 지불 옵션을 사용하여 소프트웨어 조달.
-표준화된 라이선스 약관을 통해 조직은 장기간이 소요되는 협상을 줄임.
-소프트웨어 구매를 간소화하고, 비즈니스를 위한 혁신을 가속화.
+맞춤형 약관, 볼륨 요금 및 유연한 지불 옵션을 사용하여 소프트웨어 조달. <BR>
+표준화된 라이선스 약관을 통해 조직은 장기간이 소요되는 협상을 줄임. <BR>
+소프트웨어 구매를 간소화하고, 비즈니스를 위한 혁신을 가속화. <BR>
 Professional Services를 사용하면 소프트웨어 배포 및 관리에 도움이 되는 프리미엄 지원, 관리형 서비스, 평가, 교육 및 기타 서비스.
 
-관리형 권한 부여는 고객이 AWS License Manager를 통해 AWS Marketplace에서 획득한 소프트웨어 라이선스 권한을 배포하고 활성화하고 추적할 수 있도록 하는 기능.
-Private Marketplace는 AWS Marketplace에서 구매할 수 있는 승인된 소프트웨어 및 데이터 제품의 맞춤형 디지털 카탈로그를 제공.
+관리형 권한 부여는 고객이 AWS License Manager를 통해 AWS Marketplace에서 획득한 소프트웨어 라이선스 권한을 배포하고 활성화하고 추적할 수 있도록 하는 기능. <BR>
+Private Marketplace는 AWS Marketplace에서 구매할 수 있는 승인된 소프트웨어 및 데이터 제품의 맞춤형 디지털 카탈로그를 제공. <BR>
 범주화, 할당 및 성능 비용 보고에 비용 할당 태깅을 사용.
 
 Independent Software Vendor(ISV), 데이터 공급자 및 컨설팅 파트너가 수백만 AWS 고객에게 AWS Marketplace의 소프트웨어, 서비스 및 데이터를 판매.
 
-**DynamoDB Streams**
-DynamoDB Streams는 DynamoDB 테이블에서 시간 순서에 따라 항목 수준 수정을 캡처하고 이 정보를 최대 24시간 동안 로그에 저장.
+**DynamoDB Streams** <BR>
+DynamoDB Streams는 DynamoDB 테이블에서 시간 순서에 따라 항목 수준 수정을 캡처하고 이 정보를 최대 24시간 동안 로그에 저장. <BR>
 로그와 데이터 항목은 변경 전후 거의 실시간으로 나타나므로 애플리케이션에서 이러한 로그와 데이터에 액세스.
 
 유휴 시 암호화는 DynamoDB Streams의 데이터를 암호화.
 
 테이블에서 스트림을 활성화하면 DynamoDB가 테이블 데이터 항목의 모든 수정에 대한 정보를 캡처.
 
-**Amazon DynamoDB**
-TTL(Amazon DynamoDB Time to Live)을 사용하면 항목별 타임스탬프를 정의하여 항목이 더 이상 필요하지 않은 시기를 결정할 수 있습니다. 
+**Amazon DynamoDB** <BR>
+TTL(Amazon DynamoDB Time to Live)을 사용하면 항목별 타임스탬프를 정의하여 항목이 더 이상 필요하지 않은 시기를 결정할 수 있습니다. <BR>
 지정한 타임스탬프의 날짜 및 시간이 지나면 DynamoDB는 쓰기 처리량을 사용하지 않고 테이블에서 항목을 삭제합니다. TTL은 워크로드 요구사항에 맞게 최신 상태로 유지되는 항목만 유지하여 저장된 데이터 볼륨을 줄이기 위한 수단으로 추가 비용 없이 제공됩니다.
 
 TTL은 특정 시간 후에 관련성이 손실된 항목을 저장할 때 유용합니다. 다음은 TTL 사용 사례의 예입니다.
@@ -96,11 +96,10 @@ TTL은 특정 시간 후에 관련성이 손실된 항목을 저장할 때 유�
 
 만료된 항목을 Amazon DynamoDB Streams 및 AWS Lambda를 통해 Amazon S3 데이터 레이크에 아카이브합니다.
 
-계약 또는 규제 의무에 따라 중요한 데이터를 일정 기간 동안 보관합니다.<br>
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html
+계약 또는 규제 의무에 따라 중요한 데이터를 일정 기간 동안 보관합니다.<BR>
+[링크](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html)https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html
 
-![1](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/1.png)
-
+![1](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/1.PNG)
 
 A 탈락 -> AWS CloudFormation 템플릿으로 아키텍처를 구축하는데 사용되는데 데이터에 대한 30일 제한이 아니라 부적합.
 
@@ -143,28 +142,28 @@ Answer : D
 
 가장 낮은 발신 데이터 전송 비용 문제 요점.
 
-**데이터 웨어하우스**
+**데이터 웨어하우스** <BR>
 데이터 웨어하우스는 POS 트랜잭션, 마케팅 자동화, 고객 관계 관리 시스템 등의 여러 소스에서 가져온 구조화된 데이터와 반구조화된 데이터를 분석하고 보고하는 데 사용되는 엔터프라이즈 시스템입니다. 데이터 웨어하우스는 임시 분석과 커스텀 보고서 생성에 적합.
 
 시각적 도구(온-프레미스) --(Direct Connect, 쿼리)--> 데이터 웨어하우스(AWS)
 
-**Direct Connect**
-https://aws.amazon.com/directconnect/pricing/<br>
-https://aws.amazon.com/blogs/aws/aws-data-transfer-prices-reduced/
+**Direct Connect** <BR>
+[링크](https://aws.amazon.com/directconnect/pricing/)https://aws.amazon.com/directconnect/pricing/ <br>
+[링크](https://aws.amazon.com/blogs/aws/aws-data-transfer-prices-reduced/)https://aws.amazon.com/blogs/aws/aws-data-transfer-prices-reduced/
 
 "Direct Connect를 통한 데이터 전송 가격이 인터넷을 통한 데이터 전송 가격보다 낮습니다."
 
 AWS에서 사내로 전송하는 것이 AWS에서 AWS로 전송하는 것보다 비용이 더 많이 들기 때문에 C보다 D를 사용할 것입니다.
 
 AWS Direct Connect
-![2](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/2.png)
-![3](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/3.png)
+![2](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/2.PNG)
+![3](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/3.PNG)
 
 AWS Direct Connect + AWS Transit Gateway
-![4](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/4.png)
+![4](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/4.PNG)
 
 AWS Direct Connect + VPN
-![5](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/5.png)
+![5](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/5.PNG)
 
 A, B 탈락 -> 시각화 도구가 사내/AWS에 있던 인터넷으로 데이터 전송을 하면 더 비싸서 부적합.
 
@@ -211,53 +210,53 @@ A와 D여야 합니다. <br>
 이 질문은 인프라 관리가 옵션이 되어서는 안 된다는 것을 반복적으로 언급하고 있으므로 EC2는 주제에서 벗어나 있습니다. <br>
 또한 마이크로 서비스를 통해 사용자가 문제 없이 패러게이트할 수 있습니다.
 
-(https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-java-microservices-on-amazon-ecs-using-aws-fargate.html)
+[링크](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-java-microservices-on-amazon-ecs-using-aws-fargate.html)https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/deploy-java-microservices-on-amazon-ecs-using-aws-fargate.html
 
 관리형 : EC2<br>
 완전 관리형 : RDS, DynamoDB, ElastiCache, Redshift, SNS
 
-**Amazon ECS 클러스터**
-Amazon ECS 클러스터는 작업과 서비스를 그룹화하고 공유 용량과 공통 구성을 허용.
-Amazon ECS 클러스터는 태스크 또는 서비스의 논리적 그룹입니다. 태스크와 서비스는 클러스터에 등록된 인프라에서 실행됩니다. 인프라 용량은 AWS Fargate에서 제공.
+**Amazon ECS 클러스터** <br>
+Amazon ECS 클러스터는 작업과 서비스를 그룹화하고 공유 용량과 공통 구성을 허용. <br>
+Amazon ECS 클러스터는 태스크 또는 서비스의 논리적 그룹입니다. 태스크와 서비스는 클러스터에 등록된 인프라에서 실행됩니다. 인프라 용량은 AWS Fargate에서 제공. <br>
 AWS가 관리하는 서버리스 인프라나 스스로 관리하는 Amazon EC2 인스턴스, 온프레미스 서버 또는 원격으로 관리하는 가상 머신(VM)입니다. 대부분의 경우 Amazon ECS 용량 공급자는 클러스터의 태스크가 사용하는 인프라를 관리하는 데 사용할 수 있음.
 
-클러스터는 AWS 리전별로 고유합니다.
+클러스터는 AWS 리전별로 고유합니다. <br>
 클러스터는 다음 상태 중 하나일 수 있습니다. (ACTIVE/PROVISIONING/DEPROVISIONING/FAILED/INACTIVE)
 
-작업은 시작 유형 또는 용량 공급자 전략으로 클러스터는 AWS Fargate, Amazon EC2 인스턴스 또는 외부 인스턴스에서 호스팅되는 작업이 섞여 있을 수 있음.
-(Amazon EC2 Auto Scaling 그룹의 용량을 추적하거나 조정하지 않음)
-클러스터에 오토 스케일링 용량 공급자와 Fargate 용량 공급자가 혼합되어 있을 수 있습니다. 그러나 용량 공급자 전략을 지정할 때는 둘 중 하나만 포함.
-사용자 지정 IAM 정책을 생성하여 특정 클러스터에 대한 사용자 액세스를 허용하거나 제한.
-EC2 시작 유형이나 오토 스케일링 그룹 용량 공급자를 사용하는 작업의 경우 클러스터에는 서로 다른 여러 컨테이너 인스턴스 유형이 포함될 수 있습니다. 그러나 각 컨테이너 인스턴스는 한 번에 하나의 클러스터에만 등록.
+작업은 시작 유형 또는 용량 공급자 전략으로 클러스터는 AWS Fargate, Amazon EC2 인스턴스 또는 외부 인스턴스에서 호스팅되는 작업이 섞여 있을 수 있음. <br>
+(Amazon EC2 Auto Scaling 그룹의 용량을 추적하거나 조정하지 않음) <br>
+클러스터에 오토 스케일링 용량 공급자와 Fargate 용량 공급자가 혼합되어 있을 수 있습니다. 그러나 용량 공급자 전략을 지정할 때는 둘 중 하나만 포함. <br>
+사용자 지정 IAM 정책을 생성하여 특정 클러스터에 대한 사용자 액세스를 허용하거나 제한. <br>
+EC2 시작 유형이나 오토 스케일링 그룹 용량 공급자를 사용하는 작업의 경우 클러스터에는 서로 다른 여러 컨테이너 인스턴스 유형이 포함될 수 있습니다. 그러나 각 컨테이너 인스턴스는 한 번에 하나의 클러스터에만 등록. <br>
 클러스터에 대한 기본 Service Connect 네임스페이스를 구성할 수 있습니다. 기본 Service Connect 네임스페이스를 설정한 후 Service Connect를 켜서 네임스페이스의 클라이언트 서비스로 클러스터에 생성된 모든 새 서비스를 추가.
 
-**Kubernetes**
-Kubernetes는 대규모 컨테이너식 애플리케이션을 배포하고 관리하는 데 사용할 수 있는 오픈 소스 소프트웨어.
-Amazon Elastic Compute Cloud(EC2) 컴퓨팅 인스턴스의 클러스터를 관리하고 배포, 유지 관리 및 크기 조정의 프로세스를 통해 이러한 인스턴스에서 컨테이너를 실행.
-Kubernetes를 사용하면 온프레미스와 클라우드에서 같은 도구 세트를 사용하여 원하는 유형의 컨테이너식 애플리케이션을 실행할 수 있음.
+**Kubernetes** <br>
+Kubernetes는 대규모 컨테이너식 애플리케이션을 배포하고 관리하는 데 사용할 수 있는 오픈 소스 소프트웨어. <br>
+Amazon Elastic Compute Cloud(EC2) 컴퓨팅 인스턴스의 클러스터를 관리하고 배포, 유지 관리 및 크기 조정의 프로세스를 통해 이러한 인스턴스에서 컨테이너를 실행. <br>
+Kubernetes를 사용하면 온프레미스와 클라우드에서 같은 도구 세트를 사용하여 원하는 유형의 컨테이너식 애플리케이션을 실행할 수 있음. <br>
 AWS에서는 확장 가능한 고가용성 가상 머신 인프라, 커뮤니티 기반 서비스 통합 및 Amazon Elastic Kubernetes Service(EKS)(Kubernetes 공인 관리형 서비스)를 통해 클라우드에서 손쉽게 Kubernetes를 실행 가능.
 
-Kubernetes는 컴퓨팅 인스턴스 클러스터를 관리하고 가용 컴퓨팅 리소스와 각 컨테이너의 리소스 요구 사항을 기반으로 클러스터에서 실행되도록 컨테이너를 예약하는 방식으로 작동합니다. 컨테이너는 팟이라는 논리적 그룹으로 실행되며 하나 또는 여러 컨테이너를 팟으로 함께 실행하고 규모를 조정.
-`Kubernetes 컨트롤 플레인` 소프트웨어가 언제 어디에서 팟을 실행할지 결정하고, 트래픽 라우팅을 관리하고, 사용률 또는 사용자가 정의한 다른 지표를 기반으로 팟의 규모를 조정.
-인스턴스에 장애가 발생하면 팟을 자동으로 다시 시작.
+Kubernetes는 컴퓨팅 인스턴스 클러스터를 관리하고 가용 컴퓨팅 리소스와 각 컨테이너의 리소스 요구 사항을 기반으로 클러스터에서 실행되도록 컨테이너를 예약하는 방식으로 작동합니다. <br>컨테이너는 팟이라는 논리적 그룹으로 실행되며 하나 또는 여러 컨테이너를 팟으로 함께 실행하고 규모를 조정. <br>
+`Kubernetes 컨트롤 플레인` 소프트웨어가 언제 어디에서 팟을 실행할지 결정하고, 트래픽 라우팅을 관리하고, 사용률 또는 사용자가 정의한 다른 지표를 기반으로 팟의 규모를 조정. <br>
+인스턴스에 장애가 발생하면 팟을 자동으로 다시 시작. <br>
 각 팟에는 IP 주소와 하나의 DNS 이름이 주어지며 Kubernetes는 이를 사용하여 서비스를 서로 연결하고 외부 트래픽과 연결.
 
-Kubernetes 배포를 완전 관리. 강력한 인스턴스 유형을 선택하여 Kubernetes를 프로비저닝 및 실행. -> Amazon EC2
-마스터 인스턴스 및 etcd를 프로비저닝하거나 관리할 필요 없이 Kubernetes를 실행. -> Amazon EKS
+Kubernetes 배포를 완전 관리. 강력한 인스턴스 유형을 선택하여 Kubernetes를 프로비저닝 및 실행. -> Amazon EC2 <br>
+마스터 인스턴스 및 etcd를 프로비저닝하거나 관리할 필요 없이 Kubernetes를 실행. -> Amazon EKS <br>
 빠른 배포를 위해 컨테이너 이미지를 저장, 암호화 및 관리. -> Amazon ECR
 
-클러스터에 `작업자 노드` 및 구역 추가로 앱의 가용성을 높이기 위해 클러스터의 한 기존 구역 또는 다수의 기존 구역에 작업자 노드를 추가할 수 있습니다. 구역 장애로부터 앱을 보호하는 데 도움이 되도록 클러스터에 구역을 추가 가능.
-클러스터를 작성하면 작업자 노드가 작업자 풀에서 프로비저닝됨.
-풀에 작업자 노드를 더 추가할 수 있고 기본적으로 작업자 풀은 하나의 구역에 존재. -> 단일 구역 클러스터(single zone cluster)
+클러스터에 `작업자 노드` 및 구역 추가로 앱의 가용성을 높이기 위해 클러스터의 한 기존 구역 또는 다수의 기존 구역에 작업자 노드를 추가할 수 있습니다. 구역 장애로부터 앱을 보호하는 데 도움이 되도록 클러스터에 구역을 추가 가능. <br>
+클러스터를 작성하면 작업자 노드가 작업자 풀에서 프로비저닝됨. <br>
+풀에 작업자 노드를 더 추가할 수 있고 기본적으로 작업자 풀은 하나의 구역에 존재. -> 단일 구역 클러스터(single zone cluster) <br>
 클러스터에 구역을 더 추가하면 작업자 풀이 구역 간에 존재 -> 다중 구역 클러스터(multizone cluster)
 
-Amazon Elastic Kubernetes Service(EKS) 클러스터의 관리형 작업자 노드를 프로비저닝하고, Amazon EKS 관리 콘솔, API 또는 CLI를 사용하여 노드를 최신 상태로 유지 가능.
-Amazon EKS 관리형 노드 그룹을 사용하면 컴퓨팅 용량을 제공하는 EC2 인스턴스를 별도로 프로비저닝하거나 연결할 필요가 없음.
-AWS 계정에서 EKS에 최적화.
+Amazon Elastic Kubernetes Service(EKS) 클러스터의 관리형 작업자 노드를 프로비저닝하고, Amazon EKS 관리 콘솔, API 또는 CLI를 사용하여 노드를 최신 상태로 유지 가능. <br>
+Amazon EKS 관리형 노드 그룹을 사용하면 컴퓨팅 용량을 제공하는 EC2 인스턴스를 별도로 프로비저닝하거나 연결할 필요가 없음. <br>
+AWS 계정에서 EKS에 최적화. <br>
 가용성을 유지하기 위해 노드가 정상적으로 드레이닝.
 
-**Fargate**
-서버를 관리하지 않고도 애플리케이션 구축에 초점을 맞출 수 있도록 지원하는 종량제 컨테이너에 적합한 서버리스 컴퓨팅 엔진, 마이크로서비스.
+**Fargate** <br>
+서버를 관리하지 않고도 애플리케이션 구축에 초점을 맞출 수 있도록 지원하는 종량제 컨테이너에 적합한 서버리스 컴퓨팅 엔진, 마이크로서비스. <br>
 AWS Fargate는 ECS 및 EKS 모두와 호환.
 
 인프라가 아닌 애플리케이션 배포 및 관리 Fargate는 서버 크기 조정, 패치, 보안 및 관리의 운영 부담을 없애줌.
@@ -305,24 +304,24 @@ Answer : C
 
 해설 : 
 
-![6](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/6.png)
+![6](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/6.PNG)
 
-ex)
-"Action": "ec2:*" -> ec2의 모든 기능에 대해서
-"Action": "ec2:StartInstances" -> ec2에서 인스턴스 시작만 된다.
+ex) <br>
+"Action": "ec2:*" -> ec2의 모든 기능에 대해서 <br>
+"Action": "ec2:StartInstances" -> ec2에서 인스턴스 시작만 된다. <br>
 "NotAction": "s3:DeleteBucket" -> s3에서 DeleteBucket(버켓 삭제)를 제외하고
 
-"Effect": "allow" 
-\* = All resources
-"Action": "ec2:TerminateInstances" = ec2:TerminateInstances기능만 가능
+"Effect": "allow" <br>
+\* = All resources <br>
+"Action": "ec2:TerminateInstances" = ec2:TerminateInstances기능만 <br>
 "Condition": "aws:SourceIP": "10.100.100.0/24" = If 주소가 10.100.100.0/24 네트워크면
 
 사용자는 모든 리소스에 대한 EC2 종료 작업 허용. 만약 주소가 10.100.100.0/24이라면
 
-"Effect": "Deny"
-\* = All resources
-"NotAction": "ec2:*" = ec2의 모든 기능 제외하고
-"Condition": "ec2:Region": "us-east-1" = If ec2지역이 us-east-1 이면
+"Effect": "Deny" <br>
+\* = All resources <br>
+"Action": "ec2:*" = ec2의 모든 기능 <br>
+"Condition": "ec2:Region": "us-east-1" = If ec2지역이 us-east-1 이 아니라면
 
 사용자는 모든 리소스에 대한 EC2 모든 기능의 작업을 제외하고 거부. 만약 EC2 지역이 us-east-1이라면
 
@@ -377,18 +376,18 @@ Answer : A
 
 매월 초에 대량 쿼리를 수행하여 트래픽 문제 요점.
 
-**읽기 복제본**
+**읽기 복제본** <br>
 RDS/Aurora 읽기 복제본 인스턴스는 업스트림에 위치한 기본("마스터") 데이터베이스 인스턴스의 비동기식 읽기 전용 복제본입니다. <br>
 응용 프로그램에서 데이터를 변경할 필요가 없는 쿼리에 사용할 수 있으므로 마스터의 부하를 줄일 수 있습니다.
 
-**교차 영역 읽기 복제본**
-교차 영역 읽기 복제본은 원본 인스턴스에서 작성된 실제 복제 슬롯을 사용합니다. 복제 슬롯은 WAL 파일을 보존하기 때문에 교차 영역 복제 지연은 원본 인스턴스에 WAL이 많이 축적되고 결국 스토리지 부족과 같은 심각한 문제를 야기할 수 있음.
+**교차 영역 읽기 복제본** <br>
+교차 영역 읽기 복제본은 원본 인스턴스에서 작성된 실제 복제 슬롯을 사용합니다. 복제 슬롯은 WAL 파일을 보존하기 때문에 교차 영역 복제 지연은 원본 인스턴스에 WAL이 많이 축적되고 결국 스토리지 부족과 같은 심각한 문제를 야기할 수 있음. <br>
 그리고 다른 리전에 읽기 복제본을 만드는 것이라서 같은 지역의 트래픽은 동일함.
 
-**Amazon Redshift**
-클라우드 데이터 웨어하우징을 위한 최고의 가격 대비 성능.
-SQL을 사용하여 여러 데이터 웨어하우스, 운영 데이터베이스 및 데이터 레이크에서 정형 데이터 및 반정형 데이터를 분석하고 AWS가 설계한 하드웨어 및 기계 학습을 사용해 어떤 규모에서든 최고의 가격 대비 성능을 지원.
-데이터 이동이나 데이터 변환 없이 클릭 몇 번으로 모든 데이터에서 실시간 인사이트(통찰)와 예측 인사이트(통찰)를 얻고 데이터 사일로를 없앨 수 있음.
+**Amazon Redshift** <br>
+클라우드 데이터 웨어하우징을 위한 최고의 가격 대비 성능. <br>
+SQL을 사용하여 여러 데이터 웨어하우스, 운영 데이터베이스 및 데이터 레이크에서 정형 데이터 및 반정형 데이터를 분석하고 AWS가 설계한 하드웨어 및 기계 학습을 사용해 어떤 규모에서든 최고의 가격 대비 성능을 지원. <br>
+데이터 이동이나 데이터 변환 없이 클릭 몇 번으로 모든 데이터에서 실시간 인사이트(통찰)와 예측 인사이트(통찰)를 얻고 데이터 사일로를 없앨 수 있음. <br>
 재무 및 수요 예측 개선/협업 및 데이터 공유/비즈니스 인텔리전스 최적화/개발자 생산성 향상.
 
 A 정답 -> 읽기 복제본으로 트래픽을 나눠서 처리하기 때문에 부하를 줄일 수 있어 적합.
@@ -440,10 +439,10 @@ Answer : C, E
 
 글로벌 테이블은 글로벌 규모의 Amazon DynamoDB를 기반으로 구축되어 완전관리형, 다중 리전, 다중 활성 데이터베이스를 제공하며, 이 데이터베이스는 대규모로 확장되는 글로벌 애플리케이션에 대해 빠른 로컬 읽기 및 쓰기 성능을 지원합니다. 글로벌 테이블은 선택한 AWS 리전에서 DynamoDB 테이블을 자동으로 복제.
 
-읽기 복제본을 작성할 때 고려해야 할 몇 가지 사항이 있습니다. 먼저 백업 보존 기간을 0이 아닌 값으로 설정하여 원본 DB 인스턴스에서 자동 백업을 실행해야 합니다. 이 요구사항은 다른 읽기 복제본의 원본 DB 인스턴스인 읽기 복제본에도 적용됩니다."<br>
-https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
+읽기 복제본을 작성할 때 고려해야 할 몇 가지 사항이 있습니다. 먼저 백업 보존 기간을 0이 아닌 값으로 설정하여 원본 DB 인스턴스에서 자동 백업을 실행해야 합니다. 이 요구사항은 다른 읽기 복제본의 원본 DB 인스턴스인 읽기 복제본에도 적용됩니다." <br>
+[링크](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html
 
-A 탈락 -> RDS primary(원본) 노드에서 binlog 복제하는데 데이터 변경사항들에 대한 정보를 포함하는 로그 파일의 세트이지 읽기 지연을 해결하는게 아니라 부적합.
+A 탈락 -> RDS primary(원본) 노드에서 binlog 복제하는데 데이터 변경사항들에 대한 정보를 포함하는 로그 파일의 세트이지 읽기 지연을 해결하는게 아니라 부적합. <br>
 (에러코드, 바이너리 로그 자체에 대한 메타데이터 등 다양한 데이터가 같이 포함)
 
 B 탈락 -> A와 같이 장애에 대한 조치에 사항이라 부적합.
@@ -531,17 +530,17 @@ Answer : B
 복원력이 뛰어나고 내결함성이 뛰어난 네트워크 연결은 잘 설계된 시스템의 핵심입니다. <br>
 AWS는 물리적 위치 이중화를 위해 여러 데이터 센터에서 연결할 것을 권장합니다.
 
-**AWS Direct Connect**
-클라우드 서비스는 AWS 리소스에 대한 최단 경로임.
-전송하는 동안 네트워크 트래픽은 AWS 글로벌 네트워크에 남아있으며 퍼블릭 인터넷에 닿지 않음.
+**AWS Direct Connect** <br>
+클라우드 서비스는 AWS 리소스에 대한 최단 경로임. <br>
+전송하는 동안 네트워크 트래픽은 AWS 글로벌 네트워크에 남아있으며 퍼블릭 인터넷에 닿지 않음. <br>
 이렇게 하면 병목 현상이 발생하거나 대기 시간이 예기치 않게 증가할 가능성이 줄어듬.
 
 새 연결을 생성할 때 AWS Direct Connect 제공 파트너가 제공하는 호스팅 연결을 선택하거나 AWS에서 전용 연결을 선택하고 전 세계 100개 이상의 AWS Direct Connect 위치에 배포할 수 있음.
 
-AWS Direct Connect SiteLink를 사용하면 AWS Direct Connect 위치 간에 데이터를 전송하여 글로벌 네트워크의 데이터 센터와 사무실 사이에서 프라이빗 네트워크 연결을 생성 가능.
+AWS Direct Connect SiteLink를 사용하면 AWS Direct Connect 위치 간에 데이터를 전송하여 글로벌 네트워크의 데이터 센터와 사무실 사이에서 프라이빗 네트워크 연결을 생성 가능. <br>
 하이브리드 네트워크 구축/기존 네트워크 확장/대규모 데이터 집합 관리
 
-![7](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/7.png)
+![7](/assets/img/study_AWS/[SAA]_ExamTopics_51~60/7.PNG)
 
 A 탈락 -> STS VPN이 위에 있는 DX 연결은 무슨 말인지 모르겠음 서로 다른 연결인데 그래서 부적합.
 
@@ -585,24 +584,24 @@ Answer : B
 
 운영 오버헤드가 가장 적은 기준 충족 문제 요점.
 
-API 쿼리의 급증을 감지하여 HTTP flood(다수,대량) 공격으로 인해 애플리케이션이 작동하지 않을 수 있다고 우려.
+API 쿼리의 급증을 감지하여 HTTP flood(다수,대량) 공격으로 인해 애플리케이션이 작동하지 않을 수 있다고 우려. <br>
 DDoS 보호에 대한 질문입니다. <br>
-이것은 DDOS 보호의 한 형태입니다. 그래서 AWS WAF는 가장 적은 노력으로 최선을 다합니다.<br>
+이것은 DDOS 보호의 한 형태입니다. 그래서 AWS WAF는 가장 적은 노력으로 최선을 다합니다.
 
-**Amazon API Gateway**
-어떤 규모에서든 개발자가 API를 손쉽게 생성, 게시, 유지 관리, 모니터링 및 보안 유지할 수 있도록 하는 완전관리형 서비스.
+**Amazon API Gateway** <br>
+어떤 규모에서든 개발자가 API를 손쉽게 생성, 게시, 유지 관리, 모니터링 및 보안 유지할 수 있도록 하는 완전관리형 서비스. <br>
 API는 애플리케이션이 백엔드 서비스의 데이터, 비즈니스 로직 또는 기능에 액세스할 수 있는 "정문" 역할.
 
-API Gateway를 사용하면 실시간 양방향 통신 애플리케이션이 가능하도록 하는 RESTful API 및 WebSocket API를 작성.
-컨테이너식 서버리스 워크로드 및 웹 애플리케이션을 지원.
+API Gateway를 사용하면 실시간 양방향 통신 애플리케이션이 가능하도록 하는 RESTful API 및 WebSocket API를 작성. <br>
+컨테이너식 서버리스 워크로드 및 웹 애플리케이션을 지원. <br>
 트래픽 관리, CORS 지원, 권한 부여 및 액세스 제어, 제한, 모니터링 및 API 버전 관리 등 최대 수십만 개의 동시 API 호출.
 
-API 게이트웨이는 기본적으로 요청을 조절합니다(https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)
+API 게이트웨이는 기본적으로 요청을 조절합니다[링크](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html)https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 
-우리는 AWS Shield 또는 WAF가 필요합니다 - https://aws.amazon.com/blogs/security/how-to-protect-dynamic-web-applications-against-ddos-attacks-by-using-amazon-cloudfront-and-amazon-route-53/
+우리는 AWS Shield 또는 WAF가 필요합니다 - [링크](https://aws.amazon.com/blogs/security/how-to-protect-dynamic-web-applications-against-ddos-attacks-by-using-amazon-cloudfront-and-amazon-route-53/)https://aws.amazon.com/blogs/security/how-to-protect-dynamic-web-applications-against-ddos-attacks-by-using-amazon-cloudfront-and-amazon-route-53/
 
-**웹 액세스 제어 목록 (웹 ACL)**
-ACL은 개체나 개체 속성에 적용되어 있는 허가 목록.
+**웹 액세스 제어 목록 (웹 ACL)** <br>
+ACL은 개체나 개체 속성에 적용되어 있는 허가 목록. <br>
 웹 ACL (웹 ACL) 을 사용하면 보호된 리소스가 응답하는 모든 HTTP (S) 웹 요청을 세부적으로 제어할 수 있습니다. 아마존 CloudFront, Amazon API Gateway, Application Load BalancerAWS AppSync, Amazon Cognito 및AWS App Runner 리소스를 보호 가능.
 * 요청의 출처 IP 주소
 * 요청의 출처 국가
@@ -610,12 +609,12 @@ ACL은 개체나 개체 속성에 적용되어 있는 허가 목록.
 * 요청의 특정 부분의 크기
 * 악성 SQL 코드 또는 스크립팅 감지
 
-**Amazon CloudFront**
+**Amazon CloudFront** <br>
 AWS WAF(웹 애플리케이션 방화벽 보안 서비스), Lambda@Edge 등과 연동 가능.
 
-**Lambda@Edge**
-CloudFront에서 `Origin에 도착 이전에 인증`.
-`커스텀` 에러 페이지.
+**Lambda@Edge** <br>
+CloudFront에서 `Origin에 도착 이전에 인증`. <br>
+`커스텀` 에러 페이지. <br>
 Cookie를 검사해 `다른 페이지`로 리다이렉팅.
 
 A 탈락 -> 최대 TTL 24시간인 CF를 배포하여 DDOS를 막지 못하여 부적합.
@@ -659,8 +658,8 @@ Answer : C
 
 EC2 인스턴스의 보안 평가를 자동화 문제 요점.
 
-**Amazon GuardDuty**
-목표는 로그 분석입니다. <br>
+**Amazon GuardDuty** <br>
+목표는 로그 분석/위협 탐지입니다. <br>
 -CloudTrail Logs: 비정상적인 API 호출, 무단 배포 <br>
 -VPC 흐름 로그: 비정상적인 내부 트래픽, 비정상적인 IP 주소<br>
 -DNS 로그: 손상된 EC2 인스턴스가 DNS 쿼리 내에서 인코딩된 데이터를 전송합니다.
@@ -668,17 +667,17 @@ EC2 인스턴스의 보안 평가를 자동화 문제 요점.
 암호화폐, 가상화폐((네트워크에서 안전한 거래를 위해 암호화된 디지털 화폐로 비트코인 등이 해당함)) CryptoCurrency 공격으로부터 보호할 수 있습니다(전용 "찾기"가 있음).<br>
 그것은 기계 학습을 사용합니다.
 
-**Amazon Macie**
+**Amazon Macie** <br>
 Macie는 PII(개인 식별 가능 정보)와 같은 중요한 데이터를 식별하고 이를 알려줍니다.<br>
 S3에만 적용됩니다.
 
-**Amazon Inspector**
+**Amazon Inspector** <br>
 Inspector(검사자)는 EC2에만 해당됩니다.<br>
 - EC2 인스턴스에 대한 자동 보안 평가를 제공합니다.<br>
-- EC2 for Host에 에이전트를 설치해야 함(취약성 평가/모범 사례) 또는 에이전트를 설치하지 않고 EC2에 대해 NW 평가를 수행할 수 있음
+- EC2 for Host에 에이전트를 설치해야 함(취약성 평가/모범 사례) 또는 에이전트를 설치하지 않고 EC2에 대해 NW 평가를 수행할 수 있음.
 
-**AWS Trusted Advisor**
-AWS Trusted Advisor는 AWS 모범 사례를 따르는 데 도움이 되는 권장 사항을 제공.
+**AWS Trusted Advisor** <br> 
+AWS Trusted Advisor는 AWS 모범 사례를 따르는 데 도움이 되는 권장 사항을 제공. <br>
 
 A 탈락 -> 리소스와 기능 둘다 맞지 않고 중요한 데이터를 식별하는 것이라 부적합.
 
