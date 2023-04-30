@@ -35,7 +35,7 @@ AWS에서 소개하는 `Amazon RDS 설명`을 보면
 **온-프레미스 서버**에 있는 관계형 데이터베이스의 경우 `서버, 운영 체제 및 소프트웨어에 대한 모든 책임`을 집니다. <br>
 **Amazon EC2 인스턴스**에 있는 데이터베이스의 경우, `AWS 운영 체제`가 아래의 계층을 관리하는데 이러한 방식으로 **Amazon EC2**는 온-프레미스 데이터베이스보다 `서버를 관리해야 하는 부담 줄입니다.`
 
-![그림](/assets/img/study_AWS/[AWS]_Amazon_RDS_이해/1.png)
+![그림](/assets/img/study_AWS/[AWS]_Amazon_RDS_이해/1.PNG)
 
 **Amazon EC2**는 `완전관리형 서비스가 아닙니다.` 따라서 Amazon EC2에서 데이터베이스를 실행하면 `사용자 오류가 발생하기 쉽습니다.` <br>
 `예를 들어` 운영 체제 또는 데이터베이스를 업데이트하는 경우, 소프트웨어를 `수동으로 사용`하면 `실수로 응용 프로그램 가동 중지 시간이 발생`할 수 있습니다. <br>
@@ -46,7 +46,7 @@ AWS에서 소개하는 `Amazon RDS 설명`을 보면
 **Amazon RDS**는 `대부분의 관리 작업`을 담당하는 `관리형 데이터베이스 서비스`입니다. <br>
 Amazon RDS를 사용하면 애플리케이션과 사용자가 `수동 작업을 없애기 때문에` 대부분의 기본 선택으로 Amazon EC2보다 **Amazon RDS**를 `사용하거나 배포하는 것`이 좋습니다.
 
-![그림](/assets/img/study_AWS/[AWS]_Amazon_RDS_이해/2.png)
+![그림](/assets/img/study_AWS/[AWS]_Amazon_RDS_이해/2.PNG)
 
 **Amazon RDS**는 `완전 관리형 서비스`로 구체적인 `이점을 제공`
 
