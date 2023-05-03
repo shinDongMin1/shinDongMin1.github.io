@@ -72,7 +72,7 @@ AWS에서 소개하는 Amazon SNS 설명을 보면
 
 다음은 SNS에서 빼놓을 수 없는 `Fan Out Architecture`에 대한 그림입니다.
 
-![fan_out](/assets/img/study_AWS/2022-06-15-[AWS]_SES_SNS_SQS_비교/fan_out.png)
+![fan_out](/assets/img/study_AWS/[AWS]_SES_SNS_SQS_비교/fan_out.png)
 
 1. 먼저 User가 S3에 원본 영상을 업로드
 2. 이를 Lambda를 통해(그림에선 생략) SNS로 보냄
