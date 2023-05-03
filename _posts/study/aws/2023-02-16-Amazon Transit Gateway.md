@@ -2,7 +2,7 @@
 layout: post
 title: "[AWS] Transit Gateway"
 subtitle: AWS
-date: '2023-03-14 00:00:01 +0900'
+date: '2023-02-16 00:00:01 +0900'
 category: study
 tags: aws aws-base
 image:

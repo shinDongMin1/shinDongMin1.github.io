@@ -2,7 +2,7 @@
 layout: post
 title: "[AWS] CloudWatch와 Cloudtrail"
 subtitle: AWS
-date: '2023-03-06 00:00:01 +0900'
+date: '2023-03-12 00:00:02 +0900'
 category: study
 tags: aws aws-base
 image:

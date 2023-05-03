@@ -2,7 +2,7 @@
 layout: post
 title: "[AWS] SES, SNS, SQS 비교"
 subtitle: AWS
-date: '2023-03-12 00:00:01 +0900'
+date: '2023-03-14 00:00:01 +0900'
 category: study
 tags: aws aws-base
 image:

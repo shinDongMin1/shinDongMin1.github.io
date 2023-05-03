@@ -2,7 +2,7 @@
 layout: post
 title: "[AWS] Storage Gateway"
 subtitle: AWS
-date: '2023-03-10 00:00:01 +0900'
+date: '2023-03-04 00:00:02 +0900'
 category: study
 tags: aws aws-base
 image:

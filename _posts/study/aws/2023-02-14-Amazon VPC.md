@@ -2,7 +2,7 @@
 layout: post
 title: "[AWS] Amazon VPC"
 subtitle: AWS 
-date: '2022-01-31 00:00:01 +0900'
+date: '2023-02-14 00:00:01 +0900'
 category: study
 tags: aws aws-base
 image:
